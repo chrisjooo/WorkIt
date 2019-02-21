@@ -7,157 +7,170 @@
     android:orientation="vertical"
     tools:context=".Home">
 
-        <android.support.v7.widget.CardView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_margin="8dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#fdf5e6">
+                android:padding="8dp"
+                android:layout_margin="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:background="#680000">
+                    android:orientation="vertical"
+                    android:background="@color/offwhite">
 
-                    <android.support.v7.widget.AppCompatImageView
-                        android:layout_width="100dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#680000"
-                        android:src="@drawable/pushup_yellow"
-                        app:srcCompat="@drawable/pushup_yellow"
-                        android:adjustViewBounds="true"/>
+                        android:padding="20dp"
+                        android:background="@color/maroon">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/maroon"
+                            android:src="@drawable/pushup_yellow"
+                            app:srcCompat="@drawable/pushup_yellow"
+                            android:adjustViewBounds="true"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:textSize="8pt"
+                        android:background="@color/offwhite"
+                        android:gravity="start"
+                        android:text="You should do push ups at least 40 times!"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:padding="10dp"
+                        android:textSize="6pt"
+                        android:gravity="center"
+                        android:text="Let's do some push-ups!"/>
 
                 </LinearLayout>
 
-                <TextView
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_margin="8dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="10dp"
-                    android:textSize="8pt"
-                    android:background="#fdf5e6"
-                    android:gravity="left"
-                    android:text="You should do push ups at least 40 times!"/>
+                    android:orientation="vertical"
+                    android:background="@color/offwhite">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:padding="10dp"
-                    android:textSize="6pt"
-                    android:gravity="center"
-                    android:text="Let's do some push-ups!"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@color/maroon">
 
-            </LinearLayout>
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/maroon"
+                            android:src="@drawable/situp_yellow"
+                            app:srcCompat="@drawable/situp_yellow"
+                            android:adjustViewBounds="true"/>
 
-        </android.support.v7.widget.CardView>
+                    </LinearLayout>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_margin="8dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:textSize="8pt"
+                        android:background="@color/offwhite"
+                        android:gravity="start"
+                        android:text="You should do sit ups at least 40 times today!"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#fdf5e6">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:padding="10dp"
+                        android:textSize="6pt"
+                        android:gravity="center"
+                        android:text="Let's do some sit-ups today!"/>
 
-            <LinearLayout
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:background="#680000">
+                android:padding="8dp"
+                android:layout_margin="8dp">
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:layout_width="75dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#680000"
-                    android:src="@drawable/situp_yellow"
-                    app:srcCompat="@drawable/situp_yellow"
-                    android:adjustViewBounds="true"/>
+                    android:orientation="vertical"
+                    android:background="@color/offwhite">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@color/maroon">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:textSize="8pt"
-                android:background="@color/color_white"
-                android:gravity="left"
-                android:text="You should do sit ups at least 40 times!"/>
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="105dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/maroon"
+                            android:src="@drawable/jogging_yellow"
+                            app:srcCompat="@drawable/jogging_yellow"
+                            android:adjustViewBounds="true"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:padding="10dp"
-                android:textSize="6pt"
-                android:gravity="center"
-                android:text="Let's do some sit-ups!"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:textSize="8pt"
+                        android:background="@color/offwhite"
+                        android:gravity="start"
+                        android:text="You should run at least 2 km today!"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:padding="10dp"
+                        android:textSize="6pt"
+                        android:gravity="center"
+                        android:text="Let's do some running!"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_margin="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#fdf5e6">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:background="#680000">
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:layout_width="105dp"
-                    android:layout_height="wrap_content"
-                    android:background="#680000"
-                    android:src="@drawable/jogging_yellow"
-                    app:srcCompat="@drawable/jogging_yellow"
-                    android:adjustViewBounds="true"/>
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:textSize="8pt"
-                android:background="@color/color_white"
-                android:gravity="left"
-                android:text="You should run at least 2 km today!"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:padding="10dp"
-                android:textSize="6pt"
-                android:gravity="center"
-                android:text="Let's do some running!"/>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
+    </ScrollView>
 
 </LinearLayout>

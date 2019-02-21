@@ -7,4 +7,6 @@
     <color name="colorText">#680000</color>
     <color name="colorTextHint">#008577</color>
     <color name="color_white">#FFFFFF</color>
+    <color name="maroon">#680000</color>
+    <color name="offwhite">#fdf5e6</color>
 </resources>
