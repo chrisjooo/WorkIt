@@ -6,8 +6,8 @@
     <string name="hint_password">Password</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="hint_dateofbirth">Enter Birth Date</string>
-    <string name="hint_height">Enter Body Height</string>
-    <string name="hint_bodyweight">Enter Body Weight</string>
+    <string name="hint_height">Enter Body Height (in cm)</string>
+    <string name="hint_bodyweight">Enter Body Weight (in kg)</string>
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
     <string name="error_message_name">Enter Full Name</string>

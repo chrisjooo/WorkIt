@@ -16,7 +16,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+
         buttonHome = (Button) findViewById(R.id.homeButton);
+        buttonRecords = (Button) findViewById(R.id.recordsButton);
+
+        Home home = new Home();
+        fragmentTransaction.add(R.id.fragment_container, home);
+        fragmentTransaction.commit();
+        buttonHome.setEnabled(false);
+
         buttonHome.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -27,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
                 Home f1 = new Home();
                 fragmentTransaction.add(R.id.fragment_container, f1);
                 fragmentTransaction.commit();
+
+                buttonHome.setEnabled(false);
+                buttonRecords.setEnabled(true);
             }
         });
 
-        buttonRecords = (Button) findViewById(R.id.recordsButton);
         buttonRecords.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -41,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 Records f2 = new Records();
                 fragmentTransaction.add(R.id.fragment_container, f2);
                 fragmentTransaction.commit();
+
+                buttonHome.setEnabled(true);
+                buttonRecords.setEnabled(false);
             }
         });
     }

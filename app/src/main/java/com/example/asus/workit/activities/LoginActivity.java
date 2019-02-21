@@ -16,6 +16,9 @@ import com.example.asus.workit.helpers.InputValidation;
 import com.example.asus.workit.sql.DatabaseHelper;
 import com.example.asus.workit.R;
 
+/**
+ * A login screen that offers login via email/password.
+ */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
 
@@ -41,12 +44,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar();
 
         initViews();
-        appCompatButtonLogin.setOnClickListener(this);
-        textViewLinkRegister.setOnClickListener(this);
-        databaseHelper = new DatabaseHelper(activity);
-        inputValidation = new InputValidation(activity);
+        initListeners();
+        initObjects();
     }
 
+    /**
+     * This method is to initialize views
+     */
     private void initViews() {
 
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
@@ -63,6 +67,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    /**
+     * This method is to initialize listeners
+     */
+    private void initListeners() {
+        appCompatButtonLogin.setOnClickListener(this);
+        textViewLinkRegister.setOnClickListener(this);
+    }
+
+    /**
+     * This method is to initialize objects to be used
+     */
+    private void initObjects() {
+        databaseHelper = new DatabaseHelper(activity);
+        inputValidation = new InputValidation(activity);
+
+    }
+
+    /**
+     * This implemented method is to listen the click on view
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -70,13 +96,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 verifyFromSQLite();
                 break;
             case R.id.textViewLinkRegister:
-                // Redirect to RegisterActivity
+                // Navigate to RegisterActivity
                 Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intentRegister);
                 break;
         }
     }
 
+    /**
+     * This method is to validate the input text fields and verify login credentials from SQLite
+     */
     private void verifyFromSQLite() {
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
@@ -97,11 +126,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             emptyInputEditText();
             startActivity(accountsIntent);
 
+
         } else {
+            // Snack Bar to show success message that record is wrong
             Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
     }
 
+    /**
+     * This method is to empty all input edit text
+     */
     private void emptyInputEditText() {
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);

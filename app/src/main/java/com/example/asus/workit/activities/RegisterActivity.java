@@ -68,15 +68,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         day = calendar.get(Calendar.DAY_OF_MONTH);
 
         initViews();
-        appCompatButtonRegister.setOnClickListener(this);
-        appCompatTextViewLoginLink.setOnClickListener(this);
-
-        inputValidation = new InputValidation(activity);
-        databaseHelper = new DatabaseHelper(activity);
-        user = new User();
+        initListeners();
+        initObjects();
     }
 
-
+    /**
+     * This method is to initialize views
+     */
     private void initViews() {
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
@@ -106,6 +104,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    /**
+     * This method is to initialize listeners
+     */
+    private void initListeners() {
+        appCompatButtonRegister.setOnClickListener(this);
+        appCompatTextViewLoginLink.setOnClickListener(this);
+
+    }
+
+    /**
+     * This method is to initialize objects to be used
+     */
+    private void initObjects() {
+        inputValidation = new InputValidation(activity);
+        databaseHelper = new DatabaseHelper(activity);
+        user = new User();
+
+    }
+
+
+    /**
+     * This implemented method is to listen the click on view
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -120,6 +143,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /**
+     * This method is to validate the input text fields and post data to SQLite
+     */
     private void postDataToSQLite() {
         if (!inputValidation.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
             return;
@@ -159,17 +185,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             databaseHelper.addUser(user);
 
+            // Snack Bar to show success message that record saved successfully
             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             emptyInputEditText();
 
 
         } else {
+            // Snack Bar to show error message that record already exists
             Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
         }
 
 
     }
 
+    /**
+     * This method is to empty all input edit text
+     */
     private void emptyInputEditText() {
         textInputEditTextName.setText(null);
         textInputEditTextEmail.setText(null);
@@ -188,6 +219,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
     @Override
     protected Dialog onCreateDialog(int id) {
+        // TODO Auto-generated method stub
         if (id == 999) {
             return new DatePickerDialog(this,
                     myDateListener, year, month, day);
@@ -199,9 +231,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker arg0,
-                    int picked_year, int picked_month, int picked_day) {
-
-                    DateOfBirth = showDate(picked_year, picked_month+1, picked_day);
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
+                    DateOfBirth = showDate(arg1, arg2+1, arg3);
                     textInputEditTextDateOfBirth.setText(DateOfBirth);
                 }
             };
