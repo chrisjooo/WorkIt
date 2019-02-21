@@ -1,11 +1,19 @@
 package com.example.asus.workit;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.example.asus.workit.activities.JoggingActivity;
+import com.example.asus.workit.activities.LoginActivity;
+import com.example.asus.workit.activities.PushUpActivity;
+import com.example.asus.workit.activities.SitUpActivity;
 
 
 /**
@@ -22,6 +30,9 @@ public class Home extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public Button mButtonPushUp;
+    public Button mButtonSitUp;
+    public Button mButtonJogging;
 
 
     public Home() {
@@ -58,8 +69,39 @@ public class Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        mButtonPushUp = view.findViewById(R.id.pushupButton);
+        mButtonSitUp = view.findViewById(R.id.situpButton);
+        mButtonJogging = view.findViewById(R.id.joggingButton);
+
+        mButtonPushUp.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), PushUpActivity.class);
+                startActivity(i);
+            }
+        });
+
+        mButtonSitUp.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), SitUpActivity.class);
+                startActivity(i);
+            }
+        });
+
+        mButtonJogging.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), JoggingActivity.class);
+                startActivity(i);
+            }
+        });
+
+        return view;
+    }
 }
