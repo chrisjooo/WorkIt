@@ -15,19 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "407279726444-99p33r640lkmqbp49gbbt9ulqgf73sce.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.asus.workit",
-            "certificate_hash": "04a4a2ca6c5cc504d120936feaa38d79714f3d2b"
-          }
-        },
-        {
           "client_id": "407279726444-2pb9hj72r874iiv56743nrgcbbshf0i2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.asus.workit",
             "certificate_hash": "ea4a736d184320f3aee9935b1c9ac798d3a3077c"
+          }
+        },
+        {
+          "client_id": "407279726444-c6tbe1v41qe1dnboskk2v7e48e3hvv6k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.workit",
+            "certificate_hash": "04a4a2ca6c5cc504d120936feaa38d79714f3d2b"
           }
         },
         {
