@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "407279726444-2pb9hj72r874iiv56743nrgcbbshf0i2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.workit",
+            "certificate_hash": "ea4a736d184320f3aee9935b1c9ac798d3a3077c"
+          }
+        },
+        {
           "client_id": "407279726444-71roj52p0bptnfvtsmkbke12n42rirdd.apps.googleusercontent.com",
           "client_type": 3
         }
