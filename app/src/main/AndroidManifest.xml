@@ -15,7 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.JoggingActivity"></activity>
+        <receiver android:name=".AlarmReceiver"/>
+        <activity android:name=".AlarmReceiver"/>
+        <activity android:name=".activities.StartJogging" />
+        <activity android:name=".activities.StartSitUp" />
+        <activity android:name=".activities.StartPushUp" />
+        <activity android:name=".activities.JoggingActivity" />
         <activity android:name=".activities.SitUpActivity" />
         <activity android:name=".activities.PushUpActivity" />
         <activity

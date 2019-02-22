@@ -35,6 +35,8 @@ public class PushUpActivity extends AppCompatActivity {
                 } else
                 {
                     errorMessage.setText("");
+
+                    //LAKUIN AKSI PINDAH PAGE
                 }
             }
         });
