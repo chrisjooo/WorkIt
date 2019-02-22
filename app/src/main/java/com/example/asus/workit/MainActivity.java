@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 
-
         buttonHome = (Button) findViewById(R.id.homeButton);
         buttonRecords = (Button) findViewById(R.id.recordsButton);
 

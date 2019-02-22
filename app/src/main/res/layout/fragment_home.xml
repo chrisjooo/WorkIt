@@ -55,6 +55,7 @@
                         android:text="You should do push ups at least 40 times!"/>
 
                     <Button
+                        android:id="@+id/pushupButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
@@ -106,6 +107,7 @@
                         android:text="You should do sit ups at least 40 times today!"/>
 
                     <Button
+                        android:id="@+id/situpButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
@@ -157,6 +159,7 @@
                         android:text="You should run at least 2 km today!"/>
 
                     <Button
+                        android:id="@+id/joggingButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
