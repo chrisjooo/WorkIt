@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "407279726444",
+    "firebase_url": "https://workit-1550757565109.firebaseio.com",
+    "project_id": "workit-1550757565109",
+    "storage_bucket": "workit-1550757565109.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407279726444:android:6fc4cd872a232a70",
+        "android_client_info": {
+          "package_name": "com.example.asus.workit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407279726444-99p33r640lkmqbp49gbbt9ulqgf73sce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.workit",
+            "certificate_hash": "04a4a2ca6c5cc504d120936feaa38d79714f3d2b"
+          }
+        },
+        {
+          "client_id": "407279726444-71roj52p0bptnfvtsmkbke12n42rirdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0V-yS-leXpCxp7GEnGwzkky2dqCryE2k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407279726444-71roj52p0bptnfvtsmkbke12n42rirdd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
