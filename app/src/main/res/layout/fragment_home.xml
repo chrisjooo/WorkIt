@@ -19,28 +19,28 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="8dp">
+                android:layout_margin="8dp"
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/offwhite">
+                    android:background="@color/offwhite"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:background="@color/maroon">
+                        android:background="@color/maroon"
+                        android:padding="20dp">
 
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
                             android:background="@color/maroon"
                             android:src="@drawable/pushup_yellow"
-                            app:srcCompat="@drawable/pushup_yellow"
-                            android:adjustViewBounds="true"/>
+                            app:srcCompat="@drawable/pushup_yellow" />
 
                     </LinearLayout>
 
@@ -48,21 +48,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="10dp"
-                        android:textSize="8pt"
                         android:background="@color/offwhite"
                         android:gravity="start"
-                        android:text="You should do push ups at least 40 times!"/>
+                        android:padding="10dp"
+                        android:text="You should do push ups at least 40 times!"
+                        android:textSize="8pt" />
 
                     <Button
                         android:id="@+id/pushupButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:padding="10dp"
-                        android:textSize="6pt"
                         android:gravity="center"
-                        android:text="Let's do some push-ups!"/>
+                        android:padding="10dp"
+                        android:text="Let's do some push-ups!"
+                        android:textSize="6pt" />
 
                 </LinearLayout>
 
@@ -71,28 +71,28 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="8dp">
+                android:layout_margin="8dp"
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/offwhite">
+                    android:background="@color/offwhite"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:background="@color/maroon">
+                        android:background="@color/maroon"
+                        android:padding="20dp">
 
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
                             android:background="@color/maroon"
                             android:src="@drawable/situp_yellow"
-                            app:srcCompat="@drawable/situp_yellow"
-                            android:adjustViewBounds="true"/>
+                            app:srcCompat="@drawable/situp_yellow" />
 
                     </LinearLayout>
 
@@ -100,21 +100,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="10dp"
-                        android:textSize="8pt"
                         android:background="@color/offwhite"
                         android:gravity="start"
-                        android:text="You should do sit ups at least 40 times today!"/>
+                        android:padding="10dp"
+                        android:text="You should do sit ups at least 40 times today!"
+                        android:textSize="8pt" />
 
                     <Button
                         android:id="@+id/situpButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:padding="10dp"
-                        android:textSize="6pt"
                         android:gravity="center"
-                        android:text="Let's do some sit-ups today!"/>
+                        android:padding="10dp"
+                        android:text="Let's do some sit-ups today!"
+                        android:textSize="6pt" />
 
                 </LinearLayout>
 
@@ -123,28 +123,28 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="8dp">
+                android:layout_margin="8dp"
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/offwhite">
+                    android:background="@color/offwhite"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:background="@color/maroon">
+                        android:background="@color/maroon"
+                        android:padding="20dp">
 
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="105dp"
                             android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
                             android:background="@color/maroon"
                             android:src="@drawable/jogging_yellow"
-                            app:srcCompat="@drawable/jogging_yellow"
-                            android:adjustViewBounds="true"/>
+                            app:srcCompat="@drawable/jogging_yellow" />
 
                     </LinearLayout>
 
@@ -152,25 +152,44 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="10dp"
-                        android:textSize="8pt"
                         android:background="@color/offwhite"
                         android:gravity="start"
-                        android:text="You should run at least 2 km today!"/>
+                        android:padding="10dp"
+                        android:text="You should run at least 2 km today!"
+                        android:textSize="8pt" />
 
                     <Button
                         android:id="@+id/joggingButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:padding="10dp"
-                        android:textSize="6pt"
                         android:gravity="center"
-                        android:text="Let's do some running!"/>
+                        android:padding="10dp"
+                        android:text="Let's do some running!"
+                        android:textSize="6pt" />
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/maroon"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="8dp">
+
+                <Button
+                    android:id="@+id/shareButton"
+                    android:layout_width="280dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/share_yellow"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

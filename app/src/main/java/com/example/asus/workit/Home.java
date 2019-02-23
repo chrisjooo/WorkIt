@@ -4,6 +4,7 @@ package com.example.asus.workit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ public class Home extends Fragment {
     public Button mButtonPushUp;
     public Button mButtonSitUp;
     public Button mButtonJogging;
+    public Button mButtonShare;
 
 
     public Home() {
@@ -74,6 +76,7 @@ public class Home extends Fragment {
         mButtonPushUp = view.findViewById(R.id.pushupButton);
         mButtonSitUp = view.findViewById(R.id.situpButton);
         mButtonJogging = view.findViewById(R.id.joggingButton);
+        mButtonShare = view.findViewById(R.id.shareButton);
 
         mButtonPushUp.setOnClickListener(new View.OnClickListener() {
 
@@ -100,6 +103,23 @@ public class Home extends Fragment {
                 Intent i = new Intent(getActivity(), JoggingActivity.class);
                 startActivity(i);
             }
+        });
+
+        mButtonShare.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String txt = "I'm doing some workout with WorkIt! app!";
+                String mimeType = "text/plain";
+
+                ShareCompat.IntentBuilder
+                        .from(Home.super.getActivity())
+                        .setType(mimeType)
+                        .setChooserTitle("Share this text with: ")
+                        .setText(txt)
+                        .startChooser();
+            }
+
         });
 
         return view;
