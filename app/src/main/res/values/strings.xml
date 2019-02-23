@@ -29,5 +29,6 @@
     <string name="login_redirect">Already a member? Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="theme">Theme</string>
 
 </resources>

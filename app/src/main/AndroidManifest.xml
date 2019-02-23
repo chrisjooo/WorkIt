@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.asus.workit">
+
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -15,8 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <receiver android:name=".AlarmReceiver"/>
-        <activity android:name=".AlarmReceiver"/>
+        <receiver android:name=".AlarmReceiver" />
+
+        <activity android:name=".AlarmReceiver" />
         <activity android:name=".activities.StartJogging" />
         <activity android:name=".activities.StartSitUp" />
         <activity android:name=".activities.StartPushUp" />
@@ -28,7 +30,6 @@
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,6 +37,7 @@
             android:name=".activities.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".Setting" />
     </application>
 
 </manifest>

@@ -75,4 +75,9 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager am = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
         am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
     }
+
+    public void goToSetting(View view) {
+        Intent intentSetting = new Intent(getApplicationContext(), Setting.class);
+        startActivity(intentSetting);
+    }
 }

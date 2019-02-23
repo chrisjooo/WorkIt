@@ -9,4 +9,7 @@
     <color name="color_white">#FFFFFF</color>
     <color name="maroon">#680000</color>
     <color name="offwhite">#fdf5e6</color>
+    <color name="colorBackgroundWoman">#ffbbee</color>
+    <color name="colorDarkBackgroundWoman">#ea5656</color>
+    <color name="color_black">#000000</color>
 </resources>
