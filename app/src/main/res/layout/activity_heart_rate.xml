@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.HeartRateActivity"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:paddingTop="200dp"
+        android:paddingBottom="25dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:src="@drawable/heartrate_maroon"
+        app:srcCompat="@drawable/heartrate_maroon"
+        android:adjustViewBounds="true"/>
+    
+    <ProgressBar
+        android:id="@+id/loading"
+        style="progressBarStyleLarge"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/loader"
+        android:indeterminateDuration="@android:integer/config_longAnimTime"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:indeterminateTintMode="src_atop"
+        />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/fingerprint"
+        android:paddingBottom="25dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fingerprint"
+        app:srcCompat="@drawable/fingerprint"
+        android:adjustViewBounds="true"/>
+    
+    <TextView
+        android:id="@+id/fingerPrintInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="Please put your finger on the sensor!"
+        android:textSize="8pt"/>
+
+
+</LinearLayout>
