@@ -35,6 +35,7 @@ public class PushUpActivity extends AppCompatActivity {
     private Button mButtonLetsGo;
     private Button mButtonHeartRate;
     private TextView heartRateFirst;
+    private TextView heartRateText;
     private LinearLayout heartRatebutton;
     private LinearLayout linearLayOutLetsGoPushUp;
     private String heartRate;
@@ -139,6 +140,8 @@ public class PushUpActivity extends AppCompatActivity {
                 heartRateResult.setText(feedback);
                 heartRateResult.setVisibility(View.VISIBLE);
 
+                heartRateText = (TextView) findViewById(R.id.heartRateText);
+                heartRateText.setVisibility(View.GONE);
                 heartRateFirst = (TextView) findViewById(R.id.textCheckHeartRate);
                 heartRateFirst.setVisibility(View.GONE);
                 heartRatebutton = (LinearLayout) findViewById(R.id.buttonCheckHeartRate);
