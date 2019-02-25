@@ -12,6 +12,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class Setting extends AppCompatActivity {
 
@@ -23,6 +24,8 @@ public class Setting extends AppCompatActivity {
     private final String BACKGROUND = "background";
     private final String BACKGROUND_TINT = "darkBackground";
     private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private
     int colorDarkBackground;
     int colorBackground;
 
@@ -50,7 +53,6 @@ public class Setting extends AppCompatActivity {
         mChosenGender = (AppCompatImageView) findViewById(R.id.theme_woman);
         mChosenGender.setBackgroundColor(colorDarkBackground);
         ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
-
     }
 
     @Override
@@ -74,10 +76,15 @@ public class Setting extends AppCompatActivity {
                 mChosenGender = (AppCompatImageView) findViewById(R.id.theme_man);
                 mChosenGender.setBackgroundColor(colorDarkBackground);
                 ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
+
                 //Change woman image
                 mChosenGender = (AppCompatImageView) findViewById(R.id.theme_woman);
                 mChosenGender.setBackgroundColor(colorDarkBackground);
                 ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
+
+                //Change setting background
+                LinearLayout settingBackground = (LinearLayout) findViewById(R.id.settingBackground);
+                settingBackground.setBackgroundColor(colorBackground);
 
                 chosenGender = "man";
                 break;
@@ -88,10 +95,16 @@ public class Setting extends AppCompatActivity {
                 mChosenGender = (AppCompatImageView) findViewById(R.id.theme_man);
                 mChosenGender.setBackgroundColor(colorDarkBackground);
                 ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
+
                 //Change woman image
                 mChosenGender = (AppCompatImageView) findViewById(R.id.theme_woman);
                 mChosenGender.setBackgroundColor(colorDarkBackground);
                 ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
+
+                //Change setting background
+                LinearLayout x = (LinearLayout) findViewById(R.id.settingBackground);
+                x.setBackgroundColor(colorBackground);
+
 
                 chosenGender = "woman";
 

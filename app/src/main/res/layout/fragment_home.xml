@@ -182,6 +182,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:background="@color/offwhite"
                     android:padding="8dp"
                     android:layout_weight="1">
 
@@ -198,19 +199,19 @@
                             android:padding="20dp">
 
                             <android.support.v7.widget.AppCompatImageView
-                                android:layout_width="130dp"
+                                android:layout_width="105dp"
                                 android:layout_height="wrap_content"
                                 android:adjustViewBounds="true"
                                 android:background="@color/maroon"
-                                android:src="@drawable/fact_yellow"
-                                app:srcCompat="@drawable/fact_yellow" />
+                                android:src="@drawable/location_yellow"
+                                app:srcCompat="@drawable/location_yellow" />
 
                         </LinearLayout>
 
                         <TextView
                             android:id="@+id/location"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:background="@color/offwhite"
                             android:paddingTop="10dp"
                             android:paddingRight="10dp"
@@ -224,8 +225,9 @@
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_margin="8dp"
+                    android:background="@color/offwhite"
                     android:padding="8dp"
                     android:layout_weight="1">
 
@@ -242,12 +244,12 @@
                             android:padding="20dp">
 
                             <android.support.v7.widget.AppCompatImageView
-                                android:layout_width="130dp"
+                                android:layout_width="140dp"
                                 android:layout_height="wrap_content"
                                 android:adjustViewBounds="true"
                                 android:background="@color/maroon"
-                                android:src="@drawable/fact_yellow"
-                                app:srcCompat="@drawable/fact_yellow" />
+                                android:src="@drawable/temperature_yellow"
+                                app:srcCompat="@drawable/temperature_yellow" />
 
                         </LinearLayout>
 
@@ -259,8 +261,11 @@
                             android:paddingTop="10dp"
                             android:paddingRight="10dp"
                             android:paddingLeft="10dp"
-                            android:paddingBottom="20dp"
-                            android:textSize="8pt"/>
+                            android:paddingBottom="10dp"
+                            android:textSize="10pt"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:foregroundGravity="center"/>
 
                     </LinearLayout>
 

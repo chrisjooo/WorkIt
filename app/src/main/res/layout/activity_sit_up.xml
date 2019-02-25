@@ -63,6 +63,7 @@
         android:id="@+id/errorMessageSitUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#FF0000"
         android:paddingBottom="25dp"/>
 
     <TextView
@@ -104,6 +105,7 @@
         android:visibility="gone"/>
 
     <TextView
+        android:id="@+id/heartRateText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="But... If you don't want to check your heart rate, it's okay... :("

@@ -180,7 +180,7 @@ public class Home extends Fragment implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         float ambient_temperature = event.values[0];
         Log.d("INI SUHUNYAAAAAAAAA!!!!", String.valueOf(event.values[0]));
-        temperaturelabel.setText("Ambient Temperature:\n " + String.valueOf(ambient_temperature));
+        temperaturelabel.setText(String.valueOf(ambient_temperature) + " Celsius");
     }
 
     @Override
