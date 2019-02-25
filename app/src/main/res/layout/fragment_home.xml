@@ -51,7 +51,7 @@
                         android:background="@color/offwhite"
                         android:gravity="start"
                         android:padding="10dp"
-                        android:text="You should do push ups at least 40 times!"
+                        android:text="@string/commandPushUp"
                         android:textSize="8pt" />
 
                     <Button
@@ -61,7 +61,7 @@
                         android:layout_gravity="end"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Let's do some push-ups!"
+                        android:text="@string/buttonPushUp"
                         android:textSize="6pt" />
 
                 </LinearLayout>
@@ -103,7 +103,7 @@
                         android:background="@color/offwhite"
                         android:gravity="start"
                         android:padding="10dp"
-                        android:text="You should do sit ups at least 40 times today!"
+                        android:text="@string/commandSitUp"
                         android:textSize="8pt" />
 
                     <Button
@@ -113,14 +113,14 @@
                         android:layout_gravity="end"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Let's do some sit-ups today!"
+                        android:text="@string/buttonSitUp"
                         android:textSize="6pt" />
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+                <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -155,7 +155,7 @@
                         android:background="@color/offwhite"
                         android:gravity="start"
                         android:padding="10dp"
-                        android:text="You should run at least 2 km today!"
+                        android:text="@string/commandJogging"
                         android:textSize="8pt" />
 
                     <Button
@@ -165,8 +165,51 @@
                         android:layout_gravity="end"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Let's do some running!"
+                        android:text="@string/buttonJogging"
                         android:textSize="6pt" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/offwhite"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/maroon"
+                        android:padding="20dp">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:background="@color/maroon"
+                            android:src="@drawable/fact_yellow"
+                            app:srcCompat="@drawable/fact_yellow" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/offwhite"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingBottom="20dp"
+                        android:textSize="8pt"/>
 
                 </LinearLayout>
 

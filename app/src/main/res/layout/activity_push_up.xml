@@ -65,17 +65,56 @@
         android:layout_height="wrap_content"
         android:paddingBottom="25dp"/>
 
+    <TextView
+        android:id="@+id/textCheckHeartRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="But first, let's check your heart rate!"
+        android:textSize="12pt"/>
+
     <LinearLayout
+        android:id="@+id/buttonCheckHeartRate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/maroon"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:padding="15dp"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/heartRateCheck"
+            android:layout_width="120dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/heartrate_yellow"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/HeartRateResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:textSize="10pt"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayOutLetsGoPushUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/maroon"
+        android:visibility="gone"
         android:padding="20dp">
 
         <Button
             android:id="@+id/letsgoPushUp"
             android:layout_width="130dp"
-            android:layout_height="28dp"
+            android:layout_height="25dp"
             android:layout_gravity="center"
             android:background="@drawable/letsgo_yellow"/>
 

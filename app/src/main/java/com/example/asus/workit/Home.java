@@ -1,7 +1,10 @@
 package com.example.asus.workit;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ShareCompat;
@@ -10,11 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.asus.workit.activities.JoggingActivity;
+import com.example.asus.workit.activities.LocationService;
 import com.example.asus.workit.activities.LoginActivity;
 import com.example.asus.workit.activities.PushUpActivity;
 import com.example.asus.workit.activities.SitUpActivity;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -35,6 +45,8 @@ public class Home extends Fragment {
     public Button mButtonSitUp;
     public Button mButtonJogging;
     public Button mButtonShare;
+    public TextView location;
+    public LocationService locationService;
 
 
     public Home() {
@@ -121,6 +133,11 @@ public class Home extends Fragment {
             }
 
         });
+
+        location = (TextView) view.findViewById(R.id.location);
+        locationService = new LocationService(getContext());
+        String cityName = "You are working out at " + locationService.getCity(getContext(), locationService.latitude, locationService.longitude) + ", which is a good place to work out!";
+        location.setText(cityName);
 
         return view;
     }
