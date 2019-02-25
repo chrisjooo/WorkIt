@@ -2,7 +2,7 @@
 ## WorkIt! fitness application which track and gives simulation of workouts (push-up, sit-up and running)
 
 #### by Binatang Jalang
-13516052 Sinaga Yoko Christoffel Triandi | 13516092 Christian Jonathan | 13516138 Hafiz Maulana \n \n
+13516052 Sinaga Yoko Christoffel Triandi | 13516092 Christian Jonathan | 13516138 Hafiz Maulana    
 
 
 
@@ -13,8 +13,8 @@
 3. Sebelum membuka aplikasi, pergi ke Setting > App > lalu pilih aplikasi WorkIt! > nyalakan semua permission
 4. Jangan lupa juga untuk menyalakan GPS milik device
 5. Lalu buka aplikasi dan lakukan log in
-6. Aplikasi sudah bisa dijalankan dengan baik\n\n\n
-NOTE : Untuk push notification, akan didapat jam 5 sore setiap hari, sebagai pengingat untuk melakukan workout.
+6. Aplikasi sudah bisa dijalankan dengan baik  
+NOTE : Untuk push notification, akan didapat jam 5 sore setiap hari, sebagai pengingat untuk melakukan workout.    
 
 
 
