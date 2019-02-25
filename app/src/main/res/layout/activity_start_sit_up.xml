@@ -13,6 +13,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textStyle="bold"
-        android:text="LET'S DO SOME SIT UP!"/>
+        android:id="@+id/situpResult"
+        android:text="" />
 
 </LinearLayout>

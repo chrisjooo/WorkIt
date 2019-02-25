@@ -68,9 +68,9 @@ public class PushUpActivity extends AppCompatActivity {
         letsgo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getting user by email
-                DatabaseHelper dbHandler = new DatabaseHelper(context);
-                User user = dbHandler.getUserByEmail(EMAIL);
+                //TODO getting user by email
+//                DatabaseHelper dbHandler = new DatabaseHelper(context);
+//                User user = dbHandler.getUserByEmail(EMAIL);
 
                 textInputEditTextPushUp = (TextInputEditText) findViewById(R.id.inputPushUp);
                 textInputLayoutPushUp = (TextInputLayout) findViewById(R.id.inputLayoutPushUp);
@@ -84,7 +84,8 @@ public class PushUpActivity extends AppCompatActivity {
 
                     String calorie="";
                     String type="getCaloryPushup";
-                    String weight= Integer.toString(user.getBodyWeight());
+//                    String weight= Integer.toString(user.getBodyWeight());
+                    String weight="100";
                     String total=textInputEditTextPushUp.getText().toString();
                     new CalorieRequest(calorie).execute(type,weight,total);
                 }

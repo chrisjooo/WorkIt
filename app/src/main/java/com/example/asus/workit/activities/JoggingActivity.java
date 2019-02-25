@@ -1,6 +1,7 @@
 package com.example.asus.workit.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -12,6 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
+import com.example.asus.workit.model.User;
+import com.example.asus.workit.sql.DatabaseHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class JoggingActivity extends AppCompatActivity {
 
@@ -26,6 +32,9 @@ public class JoggingActivity extends AppCompatActivity {
     private TextInputEditText textInputEditTextJogging;
     private TextInputLayout textInputLayoutJogging;
     private Button letsgo;
+    private Context context = this;
+    private String calories = "";
+    private String EMAIL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +55,66 @@ public class JoggingActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                textInputEditTextJogging= (TextInputEditText) findViewById(R.id.inputJogging);
-                textInputLayoutJogging= (TextInputLayout) findViewById(R.id.inputLayoutJogging);
+                //TODO getting user by email
+//                DatabaseHelper dbHandler = new DatabaseHelper(context);
+//                User user = dbHandler.getUserByEmail(EMAIL);
+
+                textInputEditTextJogging = (TextInputEditText) findViewById(R.id.inputJogging);
+                textInputLayoutJogging = (TextInputLayout) findViewById(R.id.inputLayoutJogging);
 
                 TextView errorMessage = (TextView) findViewById(R.id.errorMessageJogging);
                 if (textInputEditTextJogging.getText().toString().matches("")) {
                     errorMessage.setText("Please enter valid input.");
-                } else
-                {
+                } else {
                     errorMessage.setText("");
 
-                    Intent i = new Intent(JoggingActivity.this, StartJogging.class);
-                    startActivity(i);
+                    String calorie = "";
+                    String type = "getCaloryJogging";
+//                    String weight = Integer.toString(user.getBodyWeight());
+                    String weight="100";
+                    String total = textInputEditTextJogging.getText().toString();
+                    new CalorieRequest(calorie).execute(type, weight, total);
                 }
             }
         });
+    }
+
+    private class CalorieRequest extends FetchRequest {
+        CalorieRequest(String burnedCalories) {
+            super(burnedCalories);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            try {
+                JSONObject exercise = new JSONObject(s);
+                String newResult = null;
+                try {
+                    newResult = exercise.getString("calories_total");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (newResult != null) {
+                    calories = newResult;
+                } else {
+                    calories = null;
+                }
+
+            } catch (JSONException e) {
+                // If onPostExecute does not receive a proper JSON string,
+                // update the UI to show failed results.
+                calories = null;
+                e.printStackTrace();
+            }
+
+            Intent i = new Intent(JoggingActivity.this, StartJogging.class);
+            i.putExtra("total", textInputEditTextJogging.getText().toString());
+            i.putExtra("type", "situp");
+            i.putExtra("calories_total", calories);
+            startActivity(i);
+        }
     }
 
     @Override

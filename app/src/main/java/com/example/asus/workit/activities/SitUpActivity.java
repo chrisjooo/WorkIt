@@ -60,14 +60,11 @@ public class SitUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textInputEditTextSitUp = (TextInputEditText) findViewById(R.id.inputSitUp);
                 textInputLayoutSitUp = (TextInputLayout) findViewById(R.id.inputLayoutSitUp);
-                //getting user by email
-                DatabaseHelper dbHandler = new DatabaseHelper(context);
-                User user = dbHandler.getUserByEmail(EMAIL);
+                // TODO getting user by email
+//                DatabaseHelper dbHandler = new DatabaseHelper(context);
+//                User user = dbHandler.getUserByEmail(EMAIL);
 
-                textInputEditTextSitUp = (TextInputEditText) findViewById(R.id.inputSitUp);
-                textInputLayoutSitUp = (TextInputLayout) findViewById(R.id.inputLayoutSitUp);
-
-                TextView errorMessage = (TextView) findViewById(R.id.errorMessagePushUp);
+                TextView errorMessage = (TextView) findViewById(R.id.errorMessageSitUp);
                 if (textInputEditTextSitUp.getText().toString().matches("")) {
                     errorMessage.setText("Please enter valid input.");
                 } else {
@@ -75,9 +72,10 @@ public class SitUpActivity extends AppCompatActivity {
 
                     String calorie = "";
                     String type = "getCalorySitup";
-                    String weight = Integer.toString(user.getBodyWeight());
+//                    String weight = Integer.toString(user.getBodyWeight());
+                    String weight="100";
                     String total = textInputEditTextSitUp.getText().toString();
-                    new SitUpActivity.CalorieRequest(calorie).execute(type, weight, total);
+                    new CalorieRequest(calorie).execute(type, weight, total);
                 }
             }
         });
@@ -113,7 +111,7 @@ public class SitUpActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Intent i = new Intent(PushUpActivity.this, StartPushUp.class);
+            Intent i = new Intent(SitUpActivity.this, StartSitUp.class);
             i.putExtra("total", textInputEditTextSitUp.getText().toString());
             i.putExtra("type", "situp");
             i.putExtra("calories_total", calories);

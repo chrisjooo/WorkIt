@@ -120,7 +120,6 @@ public class Home extends Fragment implements SensorEventListener {
 
             @Override
             public void onClick(View v) {
-                Log.d("EMAIL",EMAIL);
                 Intent i = new Intent(getActivity(), PushUpActivity.class);
                 i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
