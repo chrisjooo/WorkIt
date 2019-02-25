@@ -74,11 +74,12 @@ public class Home extends Fragment implements SensorEventListener {
      * @return A new instance of fragment Home.
      */
     // TODO: Rename and change types and number of parameters
-    public static Home newInstance(String param1, String param2) {
+    public static Home newInstance(String param1, String param2, String EMAIL) {
         Home fragment = new Home();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
+        args.putString("EMAIL",EMAIL);
         fragment.setArguments(args);
         return fragment;
     }
@@ -108,8 +109,6 @@ public class Home extends Fragment implements SensorEventListener {
         if (mTemperature == null) {
             temperaturelabel.setText(NOT_SUPPORTED_MESSAGE);
         }
-
-
 
         mButtonPushUp = view.findViewById(R.id.pushupButton);
         mButtonSitUp = view.findViewById(R.id.situpButton);
