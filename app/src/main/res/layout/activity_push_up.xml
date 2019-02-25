@@ -100,7 +100,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingBottom="20dp"
-        android:textSize="10pt"/>
+        android:textSize="10pt"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="But... If you don't want to check your heart rate, it's okay... :("
+        android:textSize="8pt"
+        android:paddingBottom="10dp"/>
 
     <LinearLayout
         android:id="@+id/linearLayOutLetsGoPushUp"
@@ -108,7 +116,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/maroon"
-        android:visibility="gone"
         android:padding="20dp">
 
         <Button

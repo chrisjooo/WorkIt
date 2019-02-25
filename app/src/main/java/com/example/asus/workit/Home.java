@@ -3,12 +3,18 @@ package com.example.asus.workit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +32,15 @@ import org.w3c.dom.Text;
 import java.util.List;
 import java.util.Locale;
 
+import static android.content.Context.SENSOR_SERVICE;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Home#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Home extends Fragment {
+public class Home extends Fragment implements SensorEventListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,6 +55,10 @@ public class Home extends Fragment {
     public Button mButtonShare;
     public TextView location;
     public LocationService locationService;
+    private TextView temperaturelabel;
+    private SensorManager mSensorManager;
+    private Sensor mTemperature;
+    private final static String NOT_SUPPORTED_MESSAGE = "Sorry, sensor not available for this device.";
 
 
     public Home() {
@@ -84,6 +96,16 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        temperaturelabel = (TextView) view.findViewById(R.id.temperature);
+        mSensorManager = (SensorManager) getActivity().getSystemService (SENSOR_SERVICE);
+
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            mTemperature= mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE); // requires API level 14.
+        }
+        if (mTemperature == null) {
+            temperaturelabel.setText(NOT_SUPPORTED_MESSAGE);
+        }
 
         mButtonPushUp = view.findViewById(R.id.pushupButton);
         mButtonSitUp = view.findViewById(R.id.situpButton);
@@ -140,5 +162,29 @@ public class Home extends Fragment {
         location.setText(cityName);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(this, mTemperature, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        float ambient_temperature = event.values[0];
+        Log.d("INI SUHUNYAAAAAAAAA!!!!", String.valueOf(event.values[0]));
+        temperaturelabel.setText("Ambient Temperature:\n " + String.valueOf(ambient_temperature));
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 }
