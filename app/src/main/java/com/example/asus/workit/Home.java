@@ -59,7 +59,7 @@ public class Home extends Fragment implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mTemperature;
     private final static String NOT_SUPPORTED_MESSAGE = "Sorry, sensor not available for this device.";
-
+    private String EMAIL;
 
     public Home() {
         // Required empty public constructor
@@ -89,7 +89,9 @@ public class Home extends Fragment implements SensorEventListener {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            EMAIL = getArguments().getString("EMAIL");
         }
+
     }
 
     @Override
@@ -107,6 +109,8 @@ public class Home extends Fragment implements SensorEventListener {
             temperaturelabel.setText(NOT_SUPPORTED_MESSAGE);
         }
 
+
+
         mButtonPushUp = view.findViewById(R.id.pushupButton);
         mButtonSitUp = view.findViewById(R.id.situpButton);
         mButtonJogging = view.findViewById(R.id.joggingButton);
@@ -116,7 +120,9 @@ public class Home extends Fragment implements SensorEventListener {
 
             @Override
             public void onClick(View v) {
+                Log.d("EMAIL",EMAIL);
                 Intent i = new Intent(getActivity(), PushUpActivity.class);
+                i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
             }
         });
@@ -126,6 +132,7 @@ public class Home extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), SitUpActivity.class);
+                i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
             }
         });
@@ -135,6 +142,7 @@ public class Home extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), JoggingActivity.class);
+                i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
             }
         });

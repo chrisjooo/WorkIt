@@ -259,7 +259,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public User getUserByEmail(String email){
-        String query = "Select * FROM " + TABLE_USER + "WHERE" + COLUMN_USER_EMAIL + " = " + "'" + email + "'";
+        String query = "Select * FROM " + TABLE_USER + " WHERE " + COLUMN_USER_EMAIL + " = " + "'" + email + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         User user = new User();

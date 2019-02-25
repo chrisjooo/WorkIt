@@ -36,7 +36,7 @@ def getCaloryPushup(request):
         'calories_total': str(burned),
         'workout_type' : 'Push-up',
         'weight' : str(weight),
-        'amount_of_workout' : str(total)
+        'amount_of_workout' : str(total)        
     }
 
     return Response(data=data,status=status.HTTP_200_OK)
@@ -49,10 +49,13 @@ def getCalorySitup(request):
     burned = weight*total*cal
 
     data = {
-        'calories_total': str(burned),
-        'workout_type' : 'Sit-up',
-        'weight' : str(weight),
-        'amount_of_workout' : str(total)
+        'result' : {
+            'calories_total': str(burned),
+            'workout_type' : 'Sit-up',
+            'weight' : str(weight),
+            'amount_of_workout' : str(total)
+        }
+
     }
 
     return Response(data=data,status=status.HTTP_200_OK)
@@ -65,10 +68,13 @@ def getCaloryJogging(request):
     burned = weight*total*cal
 
     data = {
-        'calories_total': str(burned),
-        'workout_type' : 'Jogging',
-        'weight' : str(weight),
-        'amount_of_workout' : str(total)
+        'result' : {
+            'calories_total': str(burned),
+            'workout_type' : 'Jogging',
+            'weight' : str(weight),
+            'amount_of_workout' : str(total)
+        }
+        
     }
 
     return Response(data=data,status=status.HTTP_200_OK)

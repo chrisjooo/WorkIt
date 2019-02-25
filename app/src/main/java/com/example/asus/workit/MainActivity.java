@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -43,7 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+                Bundle args = new Bundle();
+                args.putString("EMAIL", EMAIL);
+
                 Home f1 = new Home();
+                f1.setArguments(args);
+
                 fragmentTransaction.add(R.id.fragment_container, f1);
                 fragmentTransaction.commit();
 
