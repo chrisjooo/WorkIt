@@ -40,8 +40,6 @@ public class FetchRequest extends AsyncTask<String,Void,String> {
             }
 
         } catch (JSONException e) {
-            // If onPostExecute does not receive a proper JSON string,
-            // update the UI to show failed results.
             calories = null;
             e.printStackTrace();
         }

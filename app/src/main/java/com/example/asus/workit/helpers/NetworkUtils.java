@@ -51,9 +51,6 @@ public class NetworkUtils {
             String line;
             while ((line = reader.readLine()) != null) {
                 builder.append(line);
-                // Since it's JSON, adding a newline isn't necessary (it won't
-                // affect parsing) but it does make debugging a *lot* easier
-                // if you print out the completed buffer for debugging.
                 builder.append("\n");
             }
             if (builder.length() == 0) {
