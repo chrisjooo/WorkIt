@@ -16,5 +16,12 @@ public class StartPushUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_push_up);
+
+        Intent intent = getIntent();
+        String calories_total = intent.getStringExtra("calories_total");
+
+        TextView mPushupResult = (TextView) findViewById(R.id.pushupResult);
+        String message = "Congratulations! You've Burned "+calories_total+" calories!!";
+        mPushupResult.setText(message);
     }
 }

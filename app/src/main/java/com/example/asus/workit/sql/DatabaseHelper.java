@@ -257,4 +257,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return false;
     }
+
+    public User getUserByEmail(String email){
+        String query = "Select * FROM " + TABLE_USER + "WHERE" + COLUMN_USER_EMAIL + " = " + "'" + email + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        User user = new User();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            user.setId(Integer.parseInt(cursor.getString(0)));
+            user.setName(cursor.getString(1));
+            user.setEmail(cursor.getString(2));
+            user.setDateOfBirth(cursor.getString(4));
+            user.setBodyWeight(Integer.parseInt(cursor.getString(5)));
+            user.setHeight(Integer.parseInt(cursor.getString(6)));
+            cursor.close();
+        } else {
+            user = null;
+        }
+        db.close();
+        return user;
+    }
 }

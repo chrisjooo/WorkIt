@@ -14,7 +14,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     Button buttonHome;
     Button buttonRecords;
-
+    private String EMAIL;
 
 
     @Override
@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        Intent intent = getIntent();
+        EMAIL = intent.getStringExtra("EMAIL");
 
         buttonHome = (Button) findViewById(R.id.homeButton);
         buttonRecords = (Button) findViewById(R.id.recordsButton);
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToSetting(View view) {
         Intent intentSetting = new Intent(getApplicationContext(), Setting.class);
+        intentSetting.putExtra("EMAIL",EMAIL);
         startActivity(intentSetting);
     }
 }
