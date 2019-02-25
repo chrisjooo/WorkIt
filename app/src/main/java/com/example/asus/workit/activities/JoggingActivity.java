@@ -54,6 +54,9 @@ public class JoggingActivity extends AppCompatActivity {
                 } else
                 {
                     errorMessage.setText("");
+
+                    Intent i = new Intent(JoggingActivity.this, StartJogging.class);
+                    startActivity(i);
                 }
             }
         });
@@ -75,6 +78,8 @@ public class JoggingActivity extends AppCompatActivity {
                 heartRatebutton.setVisibility(View.GONE);
                 linearLayOutLetsGoJogging = (LinearLayout) findViewById(R.id.linearLayOutLetsGoJogging);
                 linearLayOutLetsGoJogging.setVisibility(View.VISIBLE);
+
+
             }
         }
     }

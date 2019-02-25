@@ -30,6 +30,8 @@ public class LocationService implements LocationListener {
     public double latitude;
     private boolean isGPSEnabled;
     private boolean isNetworkEnabled;
+    private boolean locationServiceAvailable;
+    Integer LOCATION_PERMISSION = 2;
 
     public static LocationService getLocationManager(Context context){
         if (instance == null) {
@@ -44,7 +46,6 @@ public class LocationService implements LocationListener {
 
     @TargetApi(23)
     private void initLocationService(Context context) {
-
         try   {
             this.longitude = 0.0;
             this.latitude = 0.0;
@@ -54,8 +55,10 @@ public class LocationService implements LocationListener {
             this.isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
             this.isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-            if (!isNetworkEnabled && !isGPSEnabled) {
+            if (!isNetworkEnabled && !isGPSEnabled)    {
+                this.locationServiceAvailable = false;
             } else {
+                this.locationServiceAvailable = true;
 
                 if (isNetworkEnabled) {
                     locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
@@ -82,6 +85,7 @@ public class LocationService implements LocationListener {
             }
         } catch (Exception ex)  {
             Log.d( "Error: ", ex.getMessage() );
+
         }
     }
 

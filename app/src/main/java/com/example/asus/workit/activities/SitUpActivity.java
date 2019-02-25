@@ -54,6 +54,9 @@ public class SitUpActivity extends AppCompatActivity {
                 } else
                 {
                     errorMessage.setText("");
+
+                    Intent i = new Intent(SitUpActivity.this, StartSitUp.class);
+                    startActivity(i);
                 }
             }
         });

@@ -55,7 +55,8 @@ public class PushUpActivity extends AppCompatActivity {
                 {
                     errorMessage.setText("");
 
-                    //LAKUIN AKSI PINDAH PAGE
+                    Intent i = new Intent(PushUpActivity.this, StartPushUp.class);
+                    startActivity(i);
                 }
             }
         });
