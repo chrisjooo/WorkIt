@@ -71,13 +71,14 @@ public class PushUpActivity extends AppCompatActivity {
                 String feedback = "Your heart rate is " + heartRate + " bpm";
                 heartRateResult = (TextView) findViewById(R.id.HeartRateResult);
                 heartRateResult.setText(feedback);
+                heartRateResult.setVisibility(View.VISIBLE);
 
                 heartRateFirst = (TextView) findViewById(R.id.textCheckHeartRate);
                 heartRateFirst.setVisibility(View.GONE);
                 heartRatebutton = (LinearLayout) findViewById(R.id.buttonCheckHeartRate);
                 heartRatebutton.setVisibility(View.GONE);
-                linearLayOutLetsGoPushUp = (LinearLayout) findViewById(R.id.linearLayOutLetsGoPushUp);
-                linearLayOutLetsGoPushUp.setVisibility(View.VISIBLE);
+//                linearLayOutLetsGoPushUp = (LinearLayout) findViewById(R.id.linearLayOutLetsGoPushUp);
+//                linearLayOutLetsGoPushUp.setVisibility(View.VISIBLE);
             }
         }
     }

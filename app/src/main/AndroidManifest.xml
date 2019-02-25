@@ -22,7 +22,6 @@
 
         <receiver android:name=".AlarmReceiver" />
 
-        <activity android:name=".AlarmReceiver" />
         <activity android:name=".activities.StartJogging" />
         <activity android:name=".activities.StartSitUp" />
         <activity android:name=".activities.StartPushUp" />
