@@ -4,6 +4,8 @@
 #### by Binatang Jalang
 13516052 Sinaga Yoko Christoffel Triandi | 13516092 Christian Jonathan | 13516138 Hafiz Maulana
 
+
+
 # CARA MENGINSTALL APLIKASI 
 #### (PERHATIAN : DEVICE HARUS MEMILIKI SENSOR TEMPERATUR DAN HEART RATE)
 1. Melakukan git clone ke project, dengan cara "git clone https://gitlab.informatika.org/if3111-2019-binatangjalang/mobile.git"
@@ -12,7 +14,9 @@
 4. Jangan lupa juga untuk menyalakan GPS milik device
 5. Lalu buka aplikasi dan lakukan log in
 6. Aplikasi sudah bisa dijalankan dengan baik
-### NOTE : Untuk push notification, akan didapat jam 5 sore setiap hari, sebagai pengingat untuk melakukan workout.
+NOTE : Untuk push notification, akan didapat jam 5 sore setiap hari, sebagai pengingat untuk melakukan workout.
+
+
 
 # DELIVERABLES
 Untuk Laporan, Video Demo, dan Proposal Final bisa diakses di drive :
