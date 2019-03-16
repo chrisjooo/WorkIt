@@ -3,19 +3,34 @@ package com.example.asus.workit;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.icu.util.Calendar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonHome;
     Button buttonRecords;
-    private String EMAIL;
+    private String sharedPrefFile = "com.example.asus.workit";
+    private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private SharedPreferences mPreferences;
+    private final String GENDER_KEY = "gender";
+    private final String BACKGROUND = "background";
+    private final String BACKGROUND_TINT = "darkBackground";
+    private final String EMAIL = "email";
+    private String UserEmail;
+    private String chosenGender = "man";
+    private int colorDarkBackground;
+    private int colorBackground;
 
 
     @Override
@@ -26,8 +41,21 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        //DEFAULT VALUE SharedPreferences
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        colorBackground = ContextCompat.getColor(this, R.color.colorBackground);
+        colorDarkBackground= ContextCompat.getColor(this, R.color.maroon);;
+        chosenGender = mPreferences.getString(GENDER_KEY, "man");
+        UserEmail = mPreferences.getString(EMAIL, "email");
+        // Restore preferences
+        chosenGender = mPreferences.getString(GENDER_KEY, chosenGender);
+        colorBackground = mPreferences.getInt(BACKGROUND, colorBackground);
+        colorDarkBackground = mPreferences.getInt(BACKGROUND_TINT, colorDarkBackground);
+        // Get EMAIL from intent
         Intent intent = getIntent();
-        EMAIL = intent.getStringExtra("EMAIL");
+        UserEmail = intent.getStringExtra("EMAIL");
+
+        //TODO INSERT ALL CODE TO CHANGE BACKGROUND
 
         buttonHome = (Button) findViewById(R.id.homeButton);
         buttonRecords = (Button) findViewById(R.id.recordsButton);
@@ -82,6 +110,18 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0,intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager am = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
         am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(GENDER_KEY, chosenGender);
+        preferencesEditor.putInt(BACKGROUND, colorBackground);
+        preferencesEditor.putInt(BACKGROUND_TINT, colorDarkBackground);
+        preferencesEditor.putString(EMAIL, UserEmail);
+        preferencesEditor.apply();
     }
 
     public void goToSetting(View view) {

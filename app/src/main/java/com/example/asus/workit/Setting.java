@@ -1,6 +1,7 @@
 package com.example.asus.workit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
@@ -14,20 +15,23 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.asus.workit.model.User;
+
 public class Setting extends AppCompatActivity {
 
-    private SharedPreferences mPreferences;
-    private String sharedPrefFile = "com.example.asus.workit";
-    private String chosenGender = "man";
     private static final String TAG = "SettingActivity";
+    private String sharedPrefFile = "com.example.asus.workit";
+    private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private SharedPreferences mPreferences;
     private final String GENDER_KEY = "gender";
     private final String BACKGROUND = "background";
     private final String BACKGROUND_TINT = "darkBackground";
-    private ImageView mChosenGender;
-    private LinearLayout settingBackground;
-    private
-    int colorDarkBackground;
-    int colorBackground;
+    private final String EMAIL = "email";
+    private String UserEmail;
+    private String chosenGender = "man";
+    private int colorDarkBackground;
+    private int colorBackground;
 
 
     @Override
@@ -39,11 +43,13 @@ public class Setting extends AppCompatActivity {
         colorBackground = ContextCompat.getColor(this, R.color.colorBackground);
         colorDarkBackground= ContextCompat.getColor(this, R.color.maroon);;
         chosenGender = mPreferences.getString(GENDER_KEY, "man");
+        UserEmail = mPreferences.getString(EMAIL, "email");
         // Restore preferences
 
         chosenGender = mPreferences.getString(GENDER_KEY, chosenGender);
         colorBackground = mPreferences.getInt(BACKGROUND, colorBackground);
         colorDarkBackground = mPreferences.getInt(BACKGROUND_TINT, colorDarkBackground);
+        UserEmail = mPreferences.getString(EMAIL, UserEmail);
 
         //Change man image
         mChosenGender = (AppCompatImageView) findViewById(R.id.theme_man);
@@ -53,6 +59,14 @@ public class Setting extends AppCompatActivity {
         mChosenGender = (AppCompatImageView) findViewById(R.id.theme_woman);
         mChosenGender.setBackgroundColor(colorDarkBackground);
         ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
+        //Change background
+        LinearLayout settingBackground = (LinearLayout) findViewById(R.id.settingBackground);
+        settingBackground.setBackgroundColor(colorBackground);
+
+        Log.d("EMAILNYA : ", UserEmail);
+//        Intent intent = getIntent();
+//        EMAIL = intent.getStringExtra("EMAIL");
+//        Log.d("EMAIL", EMAIL);
     }
 
     @Override
@@ -63,6 +77,7 @@ public class Setting extends AppCompatActivity {
         preferencesEditor.putString(GENDER_KEY, chosenGender);
         preferencesEditor.putInt(BACKGROUND, colorBackground);
         preferencesEditor.putInt(BACKGROUND_TINT, colorDarkBackground);
+        preferencesEditor.putString(EMAIL, UserEmail);
         preferencesEditor.apply();
     }
 
@@ -83,7 +98,7 @@ public class Setting extends AppCompatActivity {
                 ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
 
                 //Change setting background
-                LinearLayout settingBackground = (LinearLayout) findViewById(R.id.settingBackground);
+                settingBackground = (LinearLayout) findViewById(R.id.settingBackground);
                 settingBackground.setBackgroundColor(colorBackground);
 
                 chosenGender = "man";
@@ -102,8 +117,8 @@ public class Setting extends AppCompatActivity {
                 ImageViewCompat.setImageTintList(mChosenGender, ColorStateList.valueOf(colorBackground));
 
                 //Change setting background
-                LinearLayout x = (LinearLayout) findViewById(R.id.settingBackground);
-                x.setBackgroundColor(colorBackground);
+                settingBackground = (LinearLayout) findViewById(R.id.settingBackground);
+                settingBackground.setBackgroundColor(colorBackground);
 
 
                 chosenGender = "woman";

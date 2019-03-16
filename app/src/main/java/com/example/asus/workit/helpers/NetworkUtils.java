@@ -16,7 +16,7 @@ import java.net.URL;
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
     // Base URL for Books API.
-    private static final String BOOK_BASE_URL = "http://7ac8fc8b.ngrok.io/";
+    private static final String BOOK_BASE_URL = "http://398b9741.ngrok.io";
     // Parameter for the search string.
     private static final String QUERY_PARAM_WEIGHT = "weight";
     private static final String QUERY_PARAM_TOTAL = "total";
