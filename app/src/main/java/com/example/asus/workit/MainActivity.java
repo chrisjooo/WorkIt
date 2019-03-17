@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
         // Get EMAIL from intent
         Intent intent = getIntent();
         UserEmail = intent.getStringExtra("EMAIL");
-
-        //TODO INSERT ALL CODE TO CHANGE BACKGROUND
+        //Change all appereance in main Activity
         buttonHome.setTextColor(colorBackground);
         buttonHome.setBackgroundColor(colorDarkBackground);
         buttonRecords.setTextColor(colorBackground);

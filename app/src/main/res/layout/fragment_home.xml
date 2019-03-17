@@ -3,17 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/homeLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Home">
 
     <ScrollView
         android:layout_width="match_parent"
+        android:id="@+id/homeScrollview"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/homeLayout2"
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
@@ -31,12 +34,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/pushupLayout"
                         android:background="@color/maroon"
                         android:padding="20dp">
 
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
+                            android:id="@+id/pushupImageLogo"
                             android:adjustViewBounds="true"
                             android:background="@color/maroon"
                             android:src="@drawable/pushup_yellow"
@@ -47,6 +52,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/pushupText"
                         android:layout_gravity="center"
                         android:background="@color/offwhite"
                         android:gravity="start"
@@ -83,12 +89,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/situpLayout"
                         android:background="@color/maroon"
                         android:padding="20dp">
 
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:id="@+id/situpImageLogo"
                             android:adjustViewBounds="true"
                             android:background="@color/maroon"
                             android:src="@drawable/situp_yellow"
@@ -99,6 +107,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/situpText"
                         android:layout_gravity="center"
                         android:background="@color/offwhite"
                         android:gravity="start"
@@ -135,12 +144,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/joggingLayout"
                         android:background="@color/maroon"
                         android:padding="20dp">
 
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="105dp"
                             android:layout_height="wrap_content"
+                            android:id="@+id/joggingImageLogo"
                             android:adjustViewBounds="true"
                             android:background="@color/maroon"
                             android:src="@drawable/jogging_yellow"
@@ -152,6 +163,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:id="@+id/joggingText"
                         android:background="@color/offwhite"
                         android:gravity="start"
                         android:padding="10dp"
@@ -175,6 +187,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/bottomHomeLayout"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
@@ -195,12 +208,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/locationLayout"
                             android:background="@color/maroon"
                             android:padding="20dp">
 
                             <android.support.v7.widget.AppCompatImageView
                                 android:layout_width="105dp"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/locationImageLogo"
                                 android:adjustViewBounds="true"
                                 android:background="@color/maroon"
                                 android:src="@drawable/location_yellow"
@@ -240,12 +255,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/temperatureLayout"
                             android:background="@color/maroon"
                             android:padding="20dp">
 
                             <android.support.v7.widget.AppCompatImageView
                                 android:layout_width="140dp"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/temperatureImageLogo"
                                 android:adjustViewBounds="true"
                                 android:background="@color/maroon"
                                 android:src="@drawable/temperature_yellow"
@@ -279,6 +296,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:id="@+id/shareLayout"
                 android:background="@color/maroon"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"

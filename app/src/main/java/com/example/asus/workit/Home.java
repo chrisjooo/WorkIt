@@ -4,6 +4,7 @@ package com.example.asus.workit;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,9 +13,12 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.activities.JoggingActivity;
@@ -110,6 +115,62 @@ public class Home extends Fragment implements SensorEventListener {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ScrollView homeScrollview = getView().findViewById(R.id.homeScrollview);
+        homeScrollview.setBackgroundColor(colorBackground);
+        LinearLayout homeLayout2 = getView().findViewById(R.id.homeLayout2);
+        homeLayout2.setBackgroundColor(colorBackground);
+        LinearLayout pushupLayout = getView().findViewById(R.id.pushupLayout);
+        pushupLayout.setBackgroundColor(colorDarkBackground);
+        ImageView pushupImageLogo = getView().findViewById(R.id.pushupImageLogo);
+        pushupImageLogo.setBackgroundColor(colorDarkBackground);
+        ImageViewCompat.setImageTintList(pushupImageLogo, ColorStateList.valueOf(colorBackground));
+        TextView pushupText = getView().findViewById(R.id.pushupText);
+        pushupText.setTextColor(colorDarkBackground);
+        Button pushupButton = getView().findViewById(R.id.pushupButton);
+        pushupButton.setTextColor(colorDarkBackground);
+        LinearLayout situpLayout = getView().findViewById(R.id.situpLayout);
+        situpLayout.setBackgroundColor(colorDarkBackground);
+        ImageView situpImageLogo = getView().findViewById(R.id.situpImageLogo);
+        situpImageLogo.setBackgroundColor(colorDarkBackground);
+        ImageViewCompat.setImageTintList(situpImageLogo, ColorStateList.valueOf(colorBackground));
+        TextView situpText = getView().findViewById(R.id.situpText);
+        situpText.setTextColor(colorDarkBackground);
+        Button situpButton = getView().findViewById(R.id.situpButton);
+        situpButton.setTextColor(colorDarkBackground);
+        LinearLayout joggingLayout = getView().findViewById(R.id.joggingLayout);
+        joggingLayout.setBackgroundColor(colorDarkBackground);
+        ImageView joggingImageLogo = getView().findViewById(R.id.joggingImageLogo);
+        joggingImageLogo.setBackgroundColor(colorDarkBackground);
+        ImageViewCompat.setImageTintList(joggingImageLogo, ColorStateList.valueOf(colorBackground));
+        TextView joggingText = getView().findViewById(R.id.joggingText);
+        joggingText.setTextColor(colorDarkBackground);
+        Button joggingButton = getView().findViewById(R.id.joggingButton);
+        joggingButton.setTextColor(colorDarkBackground);
+        LinearLayout bottomHomeLayout = getView().findViewById(R.id.bottomHomeLayout);
+        bottomHomeLayout.setBackgroundColor(colorBackground);
+        LinearLayout temperatureLayout = getView().findViewById(R.id.temperatureLayout);
+        temperatureLayout.setBackgroundColor(colorDarkBackground);
+        ImageView temperatureImageLogo = getView().findViewById(R.id.temperatureImageLogo);
+        temperatureImageLogo.setBackgroundColor(colorDarkBackground);
+        ImageViewCompat.setImageTintList(temperatureImageLogo, ColorStateList.valueOf(colorBackground));
+        TextView temperatureText = getView().findViewById(R.id.temperature);
+        temperatureText.setTextColor(colorDarkBackground);
+        LinearLayout locationLayout = getView().findViewById(R.id.locationLayout);
+        locationLayout.setBackgroundColor(colorDarkBackground);
+        ImageView locationImageLogo = getView().findViewById(R.id.locationImageLogo);
+        locationImageLogo.setBackgroundColor(colorDarkBackground);
+        ImageViewCompat.setImageTintList(locationImageLogo, ColorStateList.valueOf(colorBackground));
+        TextView locationText = getView().findViewById(R.id.location);
+        locationText.setTextColor(colorDarkBackground);
+        LinearLayout sharelayout = getView().findViewById(R.id.shareLayout);
+        sharelayout.setBackgroundColor(colorDarkBackground);
+
     }
 
     @Override
