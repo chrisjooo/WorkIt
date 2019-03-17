@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/pushupBackground"
     android:orientation="vertical"
     tools:context=".activities.PushUpActivity"
     android:padding="25dp">
@@ -11,6 +12,7 @@
     <android.support.v7.widget.AppCompatImageView
         android:paddingRight="25dp"
         android:paddingBottom="25dp"
+        android:id="@+id/pushup"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:src="@drawable/pushup_maroon"
@@ -19,6 +21,7 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:id="@+id/pushupTextview"
         android:layout_height="wrap_content"
         android:textSize="12pt"
         android:textStyle="bold"
@@ -27,11 +30,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/pushup2"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/pushupTextview2"
             android:paddingTop="20dp"
             android:textSize="10pt"
             android:text="I want to do "/>
@@ -45,6 +50,8 @@
                 android:id="@+id/inputPushUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="10dp"
+                android:text="0"
                 android:inputType="number"
                 android:textSize="9pt"
                 />
@@ -52,6 +59,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/pushupUnit"
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
             android:textSize="10pt"

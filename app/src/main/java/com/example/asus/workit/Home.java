@@ -3,6 +3,7 @@ package com.example.asus.workit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,12 +14,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ShareCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.asus.workit.activities.JoggingActivity;
@@ -31,6 +35,7 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import static android.content.Context.SENSOR_SERVICE;
 
@@ -59,7 +64,21 @@ public class Home extends Fragment implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mTemperature;
     private final static String NOT_SUPPORTED_MESSAGE = "Sorry, sensor not available for this device.";
-    private String EMAIL;
+
+    private String sharedPrefFile = "com.example.asus.workit";
+    private SharedPreferences mPreferences;
+    private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private final String GENDER_KEY = "gender";
+    private final String BACKGROUND = "background";
+    private final String BACKGROUND_TINT = "darkBackground";
+    private final String EMAIL = "email";
+    private String UserEmail;
+    private String chosenGender = "man";
+    private int colorDarkBackground;
+    private int colorBackground;
+
+    private Context ctx;
 
     public Home() {
         // Required empty public constructor
@@ -90,15 +109,24 @@ public class Home extends Fragment implements SensorEventListener {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            EMAIL = getArguments().getString("EMAIL");
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //DEFAULT VALUE SharedPreferences
+        mPreferences = getActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE);
+        colorBackground = ContextCompat.getColor(ctx, R.color.colorBackground);
+        colorDarkBackground= ContextCompat.getColor(ctx, R.color.maroon);;
+        chosenGender = mPreferences.getString(GENDER_KEY, "man");
+        UserEmail = mPreferences.getString(EMAIL, "email");
+        // Restore preferences
+        chosenGender = mPreferences.getString(GENDER_KEY, chosenGender);
+        colorBackground = mPreferences.getInt(BACKGROUND, colorBackground);
+        colorDarkBackground = mPreferences.getInt(BACKGROUND_TINT, colorDarkBackground);
 
         temperaturelabel = (TextView) view.findViewById(R.id.temperature);
         mSensorManager = (SensorManager) getActivity().getSystemService (SENSOR_SERVICE);
@@ -120,7 +148,6 @@ public class Home extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), PushUpActivity.class);
-                i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
             }
         });
@@ -130,7 +157,6 @@ public class Home extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), SitUpActivity.class);
-                i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
             }
         });
@@ -140,7 +166,6 @@ public class Home extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), JoggingActivity.class);
-                i.putExtra("EMAIL",EMAIL);
                 startActivity(i);
             }
         });
@@ -180,6 +205,10 @@ public class Home extends Fragment implements SensorEventListener {
     public void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
+
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(EMAIL, UserEmail);
+        preferencesEditor.apply();
     }
 
     @Override
@@ -187,6 +216,12 @@ public class Home extends Fragment implements SensorEventListener {
         float ambient_temperature = event.values[0];
         Log.d("INI SUHUNYAAAAAAAAA!!!!", String.valueOf(event.values[0]));
         temperaturelabel.setText(String.valueOf(ambient_temperature) + " Celsius");
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ctx = context;
     }
 
     @Override

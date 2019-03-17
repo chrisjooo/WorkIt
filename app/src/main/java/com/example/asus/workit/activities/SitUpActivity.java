@@ -3,12 +3,19 @@ package com.example.asus.workit.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,7 +41,19 @@ public class SitUpActivity extends AppCompatActivity {
     private Button letsgo;
     private Context context = this;
     private String calories = "";
-    private String EMAIL;
+
+    private String sharedPrefFile = "com.example.asus.workit";
+    private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private SharedPreferences mPreferences;
+    private final String GENDER_KEY = "gender";
+    private final String BACKGROUND = "background";
+    private final String BACKGROUND_TINT = "darkBackground";
+    private final String EMAIL = "email";
+    private String UserEmail;
+    private String chosenGender = "man";
+    private int colorDarkBackground;
+    private int colorBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +69,62 @@ public class SitUpActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        EMAIL = intent.getStringExtra("EMAIL");
-
         letsgo = findViewById(R.id.letsgoSitUp);
+
+        //DEFAULT VALUE SharedPreferences
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        colorBackground = ContextCompat.getColor(this, R.color.colorBackground);
+        colorDarkBackground= ContextCompat.getColor(this, R.color.maroon);;
+        chosenGender = mPreferences.getString(GENDER_KEY, "man");
+        UserEmail = mPreferences.getString(EMAIL, "email");
+        // Restore preferences
+        chosenGender = mPreferences.getString(GENDER_KEY, chosenGender);
+        colorBackground = mPreferences.getInt(BACKGROUND, colorBackground);
+        colorDarkBackground = mPreferences.getInt(BACKGROUND_TINT, colorDarkBackground);
+        UserEmail = mPreferences.getString(EMAIL, UserEmail);
+
+        //Change button and background
+        mButtonHeartRate.setTextColor(colorBackground);
+        letsgo.setTextColor(colorBackground);
+        LinearLayout linearLayOutLetsGoSitup = findViewById(R.id.linearLayOutLetsGoSitUp);
+        linearLayOutLetsGoSitup.setBackgroundColor(colorDarkBackground);
+        AppCompatImageView situp = findViewById(R.id.situp);
+        situp.setBackgroundColor(colorBackground);
+        ImageViewCompat.setImageTintList(situp, ColorStateList.valueOf(colorDarkBackground));
+        TextView situpTextview = findViewById(R.id.situpTextview);
+        situpTextview.setBackgroundColor(colorBackground);
+        situpTextview.setTextColor(colorDarkBackground);
+        TextView situpTextview2 = findViewById(R.id.situpTextview2);
+        situpTextview2.setBackgroundColor(colorBackground);
+        situpTextview2.setTextColor(colorDarkBackground);
+        textInputLayoutSitUp = findViewById(R.id.inputLayoutSitUp);
+        textInputLayoutSitUp.setBackgroundColor(colorBackground);
+        textInputEditTextSitUp = findViewById(R.id.inputSitUp);
+        textInputEditTextSitUp.setTextColor(colorDarkBackground); //ini jalan normal
+        if(chosenGender == "man"){
+            textInputEditTextSitUp.setBackgroundColor(Color.parseColor("#FFD85C"));
+        }else{
+            textInputEditTextSitUp.setBackgroundColor(Color.parseColor("#ffbbee"));
+        }
+        TextView situpUnit = findViewById(R.id.situpUnit);
+        situpUnit.setTextColor(colorDarkBackground);
+        situpUnit.setBackgroundColor(colorBackground);
+        TextView errorMessageSitup = findViewById(R.id.errorMessageSitUp);
+        errorMessageSitup.setBackgroundColor(colorBackground);
+        errorMessageSitup.setTextColor(colorDarkBackground);
+        TextView textCheckHeartRate = findViewById(R.id.textCheckHeartRate);
+        textCheckHeartRate.setTextColor(colorDarkBackground);
+        textCheckHeartRate.setBackgroundColor(colorBackground);
+        LinearLayout buttonCheckHeartRate = findViewById(R.id.buttonCheckHeartRate);
+        buttonCheckHeartRate.setBackgroundColor(colorDarkBackground);
+        TextView heartRateText = findViewById(R.id.heartRateText);
+        heartRateText.setTextColor(colorDarkBackground);
+        heartRateText.setBackgroundColor(colorBackground);
+        LinearLayout situpBackground = (LinearLayout) findViewById(R.id.situpBackground);
+        situpBackground.setBackgroundColor(colorBackground);
+        LinearLayout situp2 = findViewById(R.id.situp2);
+        situp2.setBackgroundColor(colorBackground);
+
         letsgo.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -61,8 +132,8 @@ public class SitUpActivity extends AppCompatActivity {
                 textInputEditTextSitUp = (TextInputEditText) findViewById(R.id.inputSitUp);
                 textInputLayoutSitUp = (TextInputLayout) findViewById(R.id.inputLayoutSitUp);
                 // TODO getting user by email
-//                DatabaseHelper dbHandler = new DatabaseHelper(context);
-//                User user = dbHandler.getUserByEmail(EMAIL);
+                DatabaseHelper dbHandler = new DatabaseHelper(context);
+                User user = dbHandler.getUserByEmail(UserEmail);
 
                 TextView errorMessage = (TextView) findViewById(R.id.errorMessageSitUp);
                 if (textInputEditTextSitUp.getText().toString().matches("")) {
@@ -72,8 +143,8 @@ public class SitUpActivity extends AppCompatActivity {
 
                     String calorie = "";
                     String type = "getCalorySitup";
-//                    String weight = Integer.toString(user.getBodyWeight());
-                    String weight="100";
+                    String weight = Integer.toString(user.getBodyWeight());
+//                    String weight="100";
                     String total = textInputEditTextSitUp.getText().toString();
                     new CalorieRequest(calorie).execute(type, weight, total);
                 }

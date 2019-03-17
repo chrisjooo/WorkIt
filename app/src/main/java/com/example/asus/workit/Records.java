@@ -1,11 +1,23 @@
 package com.example.asus.workit;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.ImageViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -23,6 +35,20 @@ public class Records extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private String sharedPrefFile = "com.example.asus.workit";
+    private SharedPreferences mPreferences;
+    private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private final String GENDER_KEY = "gender";
+    private final String BACKGROUND = "background";
+    private final String BACKGROUND_TINT = "darkBackground";
+    private final String EMAIL = "email";
+    private String UserEmail;
+    private String chosenGender = "man";
+    private int colorDarkBackground;
+    private int colorBackground;
+
+    private Context ctx;
 
     public Records() {
         // Required empty public constructor
@@ -56,10 +82,40 @@ public class Records extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //DEFAULT VALUE SharedPreferences
+        mPreferences = getActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE);
+        colorBackground = ContextCompat.getColor(ctx, R.color.colorBackground);
+        colorDarkBackground= ContextCompat.getColor(ctx, R.color.maroon);;
+        chosenGender = mPreferences.getString(GENDER_KEY, "man");
+        UserEmail = mPreferences.getString(EMAIL, "email");
+        // Restore preferences
+        chosenGender = mPreferences.getString(GENDER_KEY, chosenGender);
+        colorBackground = mPreferences.getInt(BACKGROUND, colorBackground);
+        colorDarkBackground = mPreferences.getInt(BACKGROUND_TINT, colorDarkBackground);
+
+        //Change background and text
+        LinearLayout simulationLayout = getView().findViewById(R.id.simulationLayout);
+        simulationLayout.setBackgroundColor(colorBackground);
+        ImageView simulationImage = getView().findViewById(R.id.simulationImage);
+        simulationImage.setBackgroundColor(colorBackground);
+        ImageViewCompat.setImageTintList(simulationImage, ColorStateList.valueOf(colorDarkBackground));
+        TextView simulationText = getView().findViewById(R.id.simulationText);
+        simulationText.setBackgroundColor(colorBackground);
+        simulationText.setTextColor(colorDarkBackground);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_records, container, false);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ctx = context;
+    }
 }

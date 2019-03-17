@@ -3,14 +3,21 @@ package com.example.asus.workit.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -43,9 +50,21 @@ public class PushUpActivity extends AppCompatActivity {
     private TextInputEditText textInputEditTextPushUp;
     private TextInputLayout textInputLayoutPushUp;
     private Button letsgo;
-    private String EMAIL;
     private Context context = this;
     private String calories = "";
+
+    private String sharedPrefFile = "com.example.asus.workit";
+    private ImageView mChosenGender;
+    private LinearLayout settingBackground;
+    private SharedPreferences mPreferences;
+    private final String GENDER_KEY = "gender";
+    private final String BACKGROUND = "background";
+    private final String BACKGROUND_TINT = "darkBackground";
+    private final String EMAIL = "email";
+    private String UserEmail;
+    private String chosenGender = "man";
+    private int colorDarkBackground;
+    private int colorBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +80,71 @@ public class PushUpActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        EMAIL = intent.getStringExtra("EMAIL");
-
         letsgo = findViewById(R.id.letsgoPushUp);
+
+        //DEFAULT VALUE SharedPreferences
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        colorBackground = ContextCompat.getColor(this, R.color.colorBackground);
+        colorDarkBackground= ContextCompat.getColor(this, R.color.maroon);;
+        chosenGender = mPreferences.getString(GENDER_KEY, "man");
+        UserEmail = mPreferences.getString(EMAIL, "email");
+        // Restore preferences
+        chosenGender = mPreferences.getString(GENDER_KEY, chosenGender);
+        colorBackground = mPreferences.getInt(BACKGROUND, colorBackground);
+        colorDarkBackground = mPreferences.getInt(BACKGROUND_TINT, colorDarkBackground);
+        UserEmail = mPreferences.getString(EMAIL, UserEmail);
+
+        //Change button and background
+        mButtonHeartRate.setTextColor(colorBackground);
+        letsgo.setTextColor(colorBackground);
+        LinearLayout linearLayOutLetsGoPushUp = findViewById(R.id.linearLayOutLetsGoPushUp);
+        linearLayOutLetsGoPushUp.setBackgroundColor(colorDarkBackground);
+        AppCompatImageView pushup = findViewById(R.id.pushup);
+        pushup.setBackgroundColor(colorBackground);
+        ImageViewCompat.setImageTintList(pushup, ColorStateList.valueOf(colorDarkBackground));
+        TextView pushupTextview = findViewById(R.id.pushupTextview);
+        pushupTextview.setBackgroundColor(colorBackground);
+        pushupTextview.setTextColor(colorDarkBackground);
+        TextView pushupTextview2 = findViewById(R.id.pushupTextview2);
+        pushupTextview2.setBackgroundColor(colorBackground);
+        pushupTextview2.setTextColor(colorDarkBackground);
+        textInputLayoutPushUp = findViewById(R.id.inputLayoutPushUp);
+        textInputLayoutPushUp.setBackgroundColor(colorBackground);
+        textInputEditTextPushUp = findViewById(R.id.inputPushUp);
+        textInputEditTextPushUp.setTextColor(colorDarkBackground); //ini jalan normal
+        if(chosenGender == "man"){
+            textInputEditTextPushUp.setBackgroundColor(Color.parseColor("#FFD85C"));
+        }else{
+            textInputEditTextPushUp.setBackgroundColor(Color.parseColor("#ffbbee"));
+        }
+        TextView pushupUnit = findViewById(R.id.pushupUnit);
+        pushupUnit.setTextColor(colorDarkBackground);
+        pushupUnit.setBackgroundColor(colorBackground);
+        TextView errorMessagePushUp = findViewById(R.id.errorMessagePushUp);
+        errorMessagePushUp.setBackgroundColor(colorBackground);
+        errorMessagePushUp.setTextColor(colorDarkBackground);
+        TextView textCheckHeartRate = findViewById(R.id.textCheckHeartRate);
+        textCheckHeartRate.setTextColor(colorDarkBackground);
+        textCheckHeartRate.setBackgroundColor(colorBackground);
+        LinearLayout buttonCheckHeartRate = findViewById(R.id.buttonCheckHeartRate);
+        buttonCheckHeartRate.setBackgroundColor(colorDarkBackground);
+        TextView heartRateText = findViewById(R.id.heartRateText);
+        heartRateText.setTextColor(colorDarkBackground);
+        heartRateText.setBackgroundColor(colorBackground);
+        LinearLayout pushupBackground = (LinearLayout) findViewById(R.id.pushupBackground);
+        pushupBackground.setBackgroundColor(colorBackground);
+        LinearLayout pushup2 = findViewById(R.id.pushup2);
+        pushup2.setBackgroundColor(colorBackground);
+
+//        Intent intent = getIntent();
+//        EMAIL = intent.getStringExtra("EMAIL");
+
         letsgo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO getting user by email
-//                DatabaseHelper dbHandler = new DatabaseHelper(context);
-//                User user = dbHandler.getUserByEmail(EMAIL);
+                DatabaseHelper dbHandler = new DatabaseHelper(context);
+                User user = dbHandler.getUserByEmail(UserEmail);
 
                 textInputEditTextPushUp = (TextInputEditText) findViewById(R.id.inputPushUp);
                 textInputLayoutPushUp = (TextInputLayout) findViewById(R.id.inputLayoutPushUp);
@@ -84,8 +158,8 @@ public class PushUpActivity extends AppCompatActivity {
 
                     String calorie="";
                     String type="getCaloryPushup";
-//                    String weight= Integer.toString(user.getBodyWeight());
-                    String weight="100";
+                    String weight= Integer.toString(user.getBodyWeight());
+//                    String weight="100";
                     String total=textInputEditTextPushUp.getText().toString();
                     new CalorieRequest(calorie).execute(type,weight,total);
                 }

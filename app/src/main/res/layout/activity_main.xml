@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:id="@+id/mainLayout"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,6 +27,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:id="@+id/workitTitleLogo"
                 android:background="#680000"
                 android:src="@drawable/workit_yellow"
                 app:srcCompat="@drawable/workit_yellow"
@@ -34,6 +36,7 @@
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:id="@+id/workitSettingLogo"
                 android:layout_alignParentEnd="true"
                 android:background="#680000"
                 android:src="@drawable/setting"
@@ -70,7 +73,7 @@
                 android:layout_weight="1"
                 android:background="#680000"
                 android:textColor="@color/colorBackground"
-                android:text="RECORDS"
+                android:text="SIMULATIONS"
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>

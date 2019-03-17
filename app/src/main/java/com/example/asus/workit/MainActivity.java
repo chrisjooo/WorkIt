@@ -4,17 +4,21 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.icu.util.Calendar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonHome;
@@ -41,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        buttonHome = (Button) findViewById(R.id.homeButton);
+        buttonRecords = (Button) findViewById(R.id.recordsButton);
+
         //DEFAULT VALUE SharedPreferences
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         colorBackground = ContextCompat.getColor(this, R.color.colorBackground);
@@ -56,9 +63,19 @@ public class MainActivity extends AppCompatActivity {
         UserEmail = intent.getStringExtra("EMAIL");
 
         //TODO INSERT ALL CODE TO CHANGE BACKGROUND
-
-        buttonHome = (Button) findViewById(R.id.homeButton);
-        buttonRecords = (Button) findViewById(R.id.recordsButton);
+        buttonHome.setTextColor(colorBackground);
+        buttonHome.setBackgroundColor(colorDarkBackground);
+        buttonRecords.setTextColor(colorBackground);
+        buttonRecords.setBackgroundColor(colorDarkBackground);
+        LinearLayout mainLayout = findViewById(R.id.mainLayout);
+        mainLayout.setBackgroundColor(colorBackground);
+        AppCompatImageView workitTitleLogo = findViewById(R.id.workitTitleLogo);
+        workitTitleLogo.setBackgroundColor(colorDarkBackground);
+        ImageViewCompat.setImageTintList(workitTitleLogo, ColorStateList.valueOf(colorBackground));
+        RelativeLayout heading = findViewById(R.id.heading);
+        heading.setBackgroundColor(colorDarkBackground);
+        AppCompatImageView workitSettingLogo = findViewById(R.id.workitSettingLogo);
+        workitSettingLogo.setBackgroundColor(colorDarkBackground);
 
         Home home = new Home();
         fragmentTransaction.add(R.id.fragment_container, home);
@@ -117,9 +134,6 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
 
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        preferencesEditor.putString(GENDER_KEY, chosenGender);
-        preferencesEditor.putInt(BACKGROUND, colorBackground);
-        preferencesEditor.putInt(BACKGROUND_TINT, colorDarkBackground);
         preferencesEditor.putString(EMAIL, UserEmail);
         preferencesEditor.apply();
     }

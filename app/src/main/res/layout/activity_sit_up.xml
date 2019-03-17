@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/situpBackground"
     android:orientation="vertical"
     tools:context=".activities.SitUpActivity"
     android:padding="25dp">
@@ -12,6 +13,7 @@
         android:paddingRight="25dp"
         android:paddingBottom="25dp"
         android:layout_width="200dp"
+        android:id="@+id/situp"
         android:layout_height="wrap_content"
         android:src="@drawable/situp_maroon"
         app:srcCompat="@drawable/situp_maroon"
@@ -20,6 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/situpTextview"
         android:textSize="12pt"
         android:textStyle="bold"
         android:text="How many sit ups do you want to do?"/>
@@ -27,11 +30,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/situp2"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/situpTextview2"
             android:paddingTop="20dp"
             android:textSize="10pt"
             android:text="I want to do "/>
@@ -45,6 +50,8 @@
                 android:id="@+id/inputSitUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="10dp"
+                android:text="0"
                 android:inputType="number"
                 android:textSize="9pt"
                 />
@@ -53,6 +60,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/situpUnit"
             android:paddingTop="20dp"
             android:textSize="10pt"
             android:text=" sit ups!"/>

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/joggingBackground"
     android:orientation="vertical"
     tools:context=".activities.JoggingActivity"
     android:padding="25dp">
 
     <android.support.v7.widget.AppCompatImageView
         android:paddingRight="25dp"
+        android:id="@+id/jogging"
         android:paddingBottom="25dp"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -20,6 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/joggingTextview"
         android:textSize="12pt"
         android:textStyle="bold"
         android:text="How far do you want to run?"/>
@@ -27,11 +30,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/jogging2"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/joggingTextview2"
             android:paddingTop="20dp"
             android:textSize="10pt"
             android:text="I want to run "/>
@@ -46,12 +51,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:minWidth="10dp"
+                android:text="0"
                 android:textSize="9pt"
                 />
         </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/joggingUnit"
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
             android:textSize="10pt"
