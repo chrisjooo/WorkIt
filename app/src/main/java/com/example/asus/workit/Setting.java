@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.example.asus.workit.model.User;
 

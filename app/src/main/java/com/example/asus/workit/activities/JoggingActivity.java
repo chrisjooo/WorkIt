@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
@@ -86,6 +87,11 @@ public class JoggingActivity extends AppCompatActivity {
         UserEmail = mPreferences.getString(EMAIL, UserEmail);
 
         //Change button and background
+        LinearLayout joggingLayout2 = findViewById(R.id.joggingLayout2);
+        joggingLayout2.setBackgroundColor(colorBackground);
+        ScrollView joggingScrollview = findViewById(R.id.joggingScrollview);
+        joggingScrollview.setBackgroundColor(colorBackground);
+        
         mButtonHeartRate.setTextColor(colorBackground);
         letsgo.setTextColor(colorBackground);
         LinearLayout linearLayOutLetsGoJogging = findViewById(R.id.linearLayOutLetsGoJogging);
@@ -102,12 +108,9 @@ public class JoggingActivity extends AppCompatActivity {
         textInputLayoutJogging = findViewById(R.id.inputLayoutJogging);
         textInputLayoutJogging.setBackgroundColor(colorBackground);
         textInputEditTextJogging = findViewById(R.id.inputJogging);
-        textInputEditTextJogging.setTextColor(colorDarkBackground); //ini jalan normal
-        if(chosenGender == "man"){
-            textInputEditTextJogging.setBackgroundColor(Color.parseColor("#FFD85C"));
-        }else{
-            textInputEditTextJogging.setBackgroundColor(Color.parseColor("#ffbbee"));
-        }
+        textInputEditTextJogging.setTextColor(colorDarkBackground);
+        textInputEditTextJogging.setBackgroundColor(colorBackground);
+
         TextView joggingUnit = findViewById(R.id.joggingUnit);
         joggingUnit.setTextColor(colorDarkBackground);
         joggingUnit.setBackgroundColor(colorBackground);

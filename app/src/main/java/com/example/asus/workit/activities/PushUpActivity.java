@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
@@ -95,6 +96,11 @@ public class PushUpActivity extends AppCompatActivity {
         UserEmail = mPreferences.getString(EMAIL, UserEmail);
 
         //Change button and background
+        LinearLayout pushupLayout2 = findViewById(R.id.pushupLayout2);
+        pushupLayout2.setBackgroundColor(colorBackground);
+        ScrollView pushupScrollview = findViewById(R.id.pushupScrollview);
+        pushupScrollview.setBackgroundColor(colorBackground);
+
         mButtonHeartRate.setTextColor(colorBackground);
         letsgo.setTextColor(colorBackground);
         LinearLayout linearLayOutLetsGoPushUp = findViewById(R.id.linearLayOutLetsGoPushUp);
@@ -111,12 +117,9 @@ public class PushUpActivity extends AppCompatActivity {
         textInputLayoutPushUp = findViewById(R.id.inputLayoutPushUp);
         textInputLayoutPushUp.setBackgroundColor(colorBackground);
         textInputEditTextPushUp = findViewById(R.id.inputPushUp);
-        textInputEditTextPushUp.setTextColor(colorDarkBackground); //ini jalan normal
-        if(chosenGender == "man"){
-            textInputEditTextPushUp.setBackgroundColor(Color.parseColor("#FFD85C"));
-        }else{
-            textInputEditTextPushUp.setBackgroundColor(Color.parseColor("#ffbbee"));
-        }
+        textInputEditTextPushUp.setTextColor(colorDarkBackground);
+        textInputEditTextPushUp.setBackgroundColor(colorBackground);
+
         TextView pushupUnit = findViewById(R.id.pushupUnit);
         pushupUnit.setTextColor(colorDarkBackground);
         pushupUnit.setBackgroundColor(colorBackground);

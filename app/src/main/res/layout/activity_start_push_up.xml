@@ -6,14 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".activities.StartPushUp">
 
-    <TextView
-        android:id="@+id/pushupResult"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30pt"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text=""/>
+        android:id="@+id/pushupResultScrollview"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/pushupResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30pt"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text=""/>
+    </ScrollView>
 </LinearLayout>

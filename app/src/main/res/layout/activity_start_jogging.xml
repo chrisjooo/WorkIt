@@ -6,14 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".activities.StartJogging">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30pt"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:id="@+id/joggingResult"
-        android:text=""/>
+        android:id="@+id/joggingResultScrollview"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30pt"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/joggingResult"
+            android:text=""/>
+    </ScrollView>
 
 </LinearLayout>

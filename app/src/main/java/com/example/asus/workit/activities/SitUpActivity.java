@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
@@ -84,6 +85,11 @@ public class SitUpActivity extends AppCompatActivity {
         UserEmail = mPreferences.getString(EMAIL, UserEmail);
 
         //Change button and background
+        LinearLayout situpLayout2 = findViewById(R.id.situpLayout2);
+        situpLayout2.setBackgroundColor(colorBackground);
+        ScrollView situpScrollview = findViewById(R.id.situpScrollview);
+        situpScrollview.setBackgroundColor(colorBackground);
+        
         mButtonHeartRate.setTextColor(colorBackground);
         letsgo.setTextColor(colorBackground);
         LinearLayout linearLayOutLetsGoSitup = findViewById(R.id.linearLayOutLetsGoSitUp);
@@ -100,12 +106,9 @@ public class SitUpActivity extends AppCompatActivity {
         textInputLayoutSitUp = findViewById(R.id.inputLayoutSitUp);
         textInputLayoutSitUp.setBackgroundColor(colorBackground);
         textInputEditTextSitUp = findViewById(R.id.inputSitUp);
-        textInputEditTextSitUp.setTextColor(colorDarkBackground); //ini jalan normal
-        if(chosenGender == "man"){
-            textInputEditTextSitUp.setBackgroundColor(Color.parseColor("#FFD85C"));
-        }else{
-            textInputEditTextSitUp.setBackgroundColor(Color.parseColor("#ffbbee"));
-        }
+        textInputEditTextSitUp.setTextColor(colorDarkBackground);
+        textInputEditTextSitUp.setBackgroundColor(colorBackground);
+
         TextView situpUnit = findViewById(R.id.situpUnit);
         situpUnit.setTextColor(colorDarkBackground);
         situpUnit.setBackgroundColor(colorBackground);

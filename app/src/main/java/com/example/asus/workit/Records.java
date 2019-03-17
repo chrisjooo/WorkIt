@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -104,6 +105,10 @@ public class Records extends Fragment {
         TextView simulationText = getView().findViewById(R.id.simulationText);
         simulationText.setBackgroundColor(colorBackground);
         simulationText.setTextColor(colorDarkBackground);
+        ScrollView recordScrollview = getView().findViewById(R.id.recordScrollview);
+        recordScrollview.setBackgroundColor(colorBackground);
+        LinearLayout simulationLayout2 = getView().findViewById(R.id.simulationLayout2);
+        simulationLayout2.setBackgroundColor(colorBackground);
     }
 
     @Override
