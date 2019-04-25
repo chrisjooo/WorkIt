@@ -20,15 +20,16 @@
             android:id="@+id/joggingLayout2"
             android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatImageView
+            <TextView
                 android:id="@+id/jogging"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:paddingRight="25dp"
                 android:paddingBottom="25dp"
-                android:src="@drawable/jogging_maroon"
-                app:srcCompat="@drawable/jogging_maroon" />
+                android:text="JOGGING"
+                android:textStyle="bold"
+                android:textSize="40sp" />
 
             <TextView
                 android:id="@+id/joggingTextview"
@@ -63,6 +64,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:minWidth="10dp"
+                        android:paddingTop="11dp"
                         android:text="0"
                         android:textSize="9pt" />
                 </android.support.design.widget.TextInputLayout>

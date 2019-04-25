@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/simulationLayout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="top"
     tools:context=".Records">
@@ -18,15 +17,27 @@
             android:layout_width="match_parent"
             android:id="@+id/simulationLayout2"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/simulationImage"
-                android:layout_width="wrap_content"
-                android:layout_height="300dp"
+            <LinearLayout
+                android:id="@+id/simulationLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/maroon"
+                android:orientation="vertical">
+
+                <Button
+                android:id="@+id/simulationButton"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/please"
-                app:srcCompat="@drawable/please" />
+                    android:background="@color/maroon"
+                    android:textColor="@color/colorBackground"
+                    android:textSize="15pt"
+                android:text="WORKOUT SIMULATION" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/simulationText"
@@ -35,7 +46,7 @@
                 android:background="@color/colorBackground"
                 android:gravity="start"
                 android:padding="10dp"
-                android:text="Please Open Our Other App 'WorkIt Simulator' To See Workout Simulations"
+                android:text="Click Here To See Worktout Simulations!!"
                 android:textAlignment="center"
                 android:textColor="@color/maroon"
                 android:textSize="9pt" />

@@ -23,6 +23,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
+import com.example.asus.workit.helpers.BlueToothActivity;
 import com.example.asus.workit.helpers.NetworkUtils;
 import com.example.asus.workit.model.User;
 import com.example.asus.workit.sql.DatabaseHelper;
@@ -64,6 +65,7 @@ public class PushUpActivity extends AppCompatActivity {
     private final String EMAIL = "email";
     private String UserEmail;
     private String chosenGender = "man";
+    String weight;
     private int colorDarkBackground;
     private int colorBackground;
 
@@ -105,9 +107,9 @@ public class PushUpActivity extends AppCompatActivity {
         letsgo.setTextColor(colorBackground);
         LinearLayout linearLayOutLetsGoPushUp = findViewById(R.id.linearLayOutLetsGoPushUp);
         linearLayOutLetsGoPushUp.setBackgroundColor(colorDarkBackground);
-        AppCompatImageView pushup = findViewById(R.id.pushup);
+        TextView pushup = findViewById(R.id.pushup);
         pushup.setBackgroundColor(colorBackground);
-        ImageViewCompat.setImageTintList(pushup, ColorStateList.valueOf(colorDarkBackground));
+        pushup.setTextColor(colorDarkBackground);
         TextView pushupTextview = findViewById(R.id.pushupTextview);
         pushupTextview.setBackgroundColor(colorBackground);
         pushupTextview.setTextColor(colorDarkBackground);
@@ -161,7 +163,7 @@ public class PushUpActivity extends AppCompatActivity {
 
                     String calorie="";
                     String type="getCaloryPushup";
-                    String weight= Integer.toString(user.getBodyWeight());
+                    weight= Integer.toString(user.getBodyWeight());
 //                    String weight="100";
                     String total=textInputEditTextPushUp.getText().toString();
                     new CalorieRequest(calorie).execute(type,weight,total);
@@ -199,9 +201,10 @@ public class PushUpActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Intent i = new Intent(PushUpActivity.this, StartPushUp.class);
+            Intent i = new Intent(PushUpActivity.this, BlueToothActivity.class);
             i.putExtra("total",textInputEditTextPushUp.getText().toString());
             i.putExtra("type","pushup");
+            i.putExtra("weight",weight);
             i.putExtra("calories_total",calories);
             startActivity(i);
         }

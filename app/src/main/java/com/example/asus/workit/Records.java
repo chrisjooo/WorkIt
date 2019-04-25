@@ -2,6 +2,7 @@ package com.example.asus.workit;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -13,10 +14,14 @@ import android.support.v4.widget.ImageViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.BinatangJalang.WorkIt.UnityPlayerActivity;
+import com.example.asus.workit.activities.PushUpActivity;
 
 import org.w3c.dom.Text;
 
@@ -48,6 +53,7 @@ public class Records extends Fragment {
     private String chosenGender = "man";
     private int colorDarkBackground;
     private int colorBackground;
+    private Button mButtonSimulation;
 
     private Context ctx;
 
@@ -99,9 +105,6 @@ public class Records extends Fragment {
         //Change background and text
         LinearLayout simulationLayout = getView().findViewById(R.id.simulationLayout);
         simulationLayout.setBackgroundColor(colorBackground);
-        ImageView simulationImage = getView().findViewById(R.id.simulationImage);
-        simulationImage.setBackgroundColor(colorBackground);
-        ImageViewCompat.setImageTintList(simulationImage, ColorStateList.valueOf(colorDarkBackground));
         TextView simulationText = getView().findViewById(R.id.simulationText);
         simulationText.setBackgroundColor(colorBackground);
         simulationText.setTextColor(colorDarkBackground);
@@ -109,13 +112,30 @@ public class Records extends Fragment {
         recordScrollview.setBackgroundColor(colorBackground);
         LinearLayout simulationLayout2 = getView().findViewById(R.id.simulationLayout2);
         simulationLayout2.setBackgroundColor(colorBackground);
+        mButtonSimulation = view.findViewById(R.id.simulationButton);
+        mButtonSimulation.setTextColor(colorBackground);
+        mButtonSimulation.setBackgroundColor(colorDarkBackground);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_records, container, false);
+        View view = inflater.inflate(R.layout.fragment_records, container, false);
+
+        mButtonSimulation = view.findViewById(R.id.simulationButton);
+
+        mButtonSimulation.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), DummyActivity.class);
+                startActivity(i);
+            }
+        });
+
+        return view;
     }
 
     @Override

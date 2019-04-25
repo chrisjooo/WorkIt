@@ -21,6 +21,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
+import com.example.asus.workit.helpers.BlueToothActivity;
 import com.example.asus.workit.model.User;
 import com.example.asus.workit.sql.DatabaseHelper;
 
@@ -53,6 +54,7 @@ public class SitUpActivity extends AppCompatActivity {
     private final String EMAIL = "email";
     private String UserEmail;
     private String chosenGender = "man";
+    String weight;
     private int colorDarkBackground;
     private int colorBackground;
 
@@ -94,9 +96,9 @@ public class SitUpActivity extends AppCompatActivity {
         letsgo.setTextColor(colorBackground);
         LinearLayout linearLayOutLetsGoSitup = findViewById(R.id.linearLayOutLetsGoSitUp);
         linearLayOutLetsGoSitup.setBackgroundColor(colorDarkBackground);
-        AppCompatImageView situp = findViewById(R.id.situp);
+        TextView situp = findViewById(R.id.situp);
         situp.setBackgroundColor(colorBackground);
-        ImageViewCompat.setImageTintList(situp, ColorStateList.valueOf(colorDarkBackground));
+        situp.setTextColor(colorDarkBackground);
         TextView situpTextview = findViewById(R.id.situpTextview);
         situpTextview.setBackgroundColor(colorBackground);
         situpTextview.setTextColor(colorDarkBackground);
@@ -137,6 +139,7 @@ public class SitUpActivity extends AppCompatActivity {
                 // TODO getting user by email
                 DatabaseHelper dbHandler = new DatabaseHelper(context);
                 User user = dbHandler.getUserByEmail(UserEmail);
+                weight = Integer.toString(user.getBodyWeight());
 
                 TextView errorMessage = (TextView) findViewById(R.id.errorMessageSitUp);
                 if (textInputEditTextSitUp.getText().toString().matches("")) {
@@ -146,7 +149,7 @@ public class SitUpActivity extends AppCompatActivity {
 
                     String calorie = "";
                     String type = "getCalorySitup";
-                    String weight = Integer.toString(user.getBodyWeight());
+                    weight = Integer.toString(user.getBodyWeight());
 //                    String weight="100";
                     String total = textInputEditTextSitUp.getText().toString();
                     new CalorieRequest(calorie).execute(type, weight, total);
@@ -185,9 +188,10 @@ public class SitUpActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Intent i = new Intent(SitUpActivity.this, StartSitUp.class);
+            Intent i = new Intent(SitUpActivity.this, BlueToothActivity.class);
             i.putExtra("total", textInputEditTextSitUp.getText().toString());
             i.putExtra("type", "situp");
+            i.putExtra("weight",weight);
             i.putExtra("calories_total", calories);
             startActivity(i);
         }

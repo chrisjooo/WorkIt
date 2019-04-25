@@ -22,6 +22,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.asus.workit.R;
+import com.example.asus.workit.helpers.BlueToothActivity;
 import com.example.asus.workit.model.User;
 import com.example.asus.workit.sql.DatabaseHelper;
 
@@ -54,6 +55,7 @@ public class JoggingActivity extends AppCompatActivity {
     private final String BACKGROUND_TINT = "darkBackground";
     private final String EMAIL = "email";
     private String UserEmail;
+    String weight;
     private String chosenGender = "man";
     private int colorDarkBackground;
     private int colorBackground;
@@ -96,9 +98,9 @@ public class JoggingActivity extends AppCompatActivity {
         letsgo.setTextColor(colorBackground);
         LinearLayout linearLayOutLetsGoJogging = findViewById(R.id.linearLayOutLetsGoJogging);
         linearLayOutLetsGoJogging.setBackgroundColor(colorDarkBackground);
-        AppCompatImageView jogging = findViewById(R.id.jogging);
+        TextView jogging = findViewById(R.id.jogging);
         jogging.setBackgroundColor(colorBackground);
-        ImageViewCompat.setImageTintList(jogging, ColorStateList.valueOf(colorDarkBackground));
+        jogging.setTextColor(colorDarkBackground);
         TextView joggingTextview = findViewById(R.id.joggingTextview);
         joggingTextview.setBackgroundColor(colorBackground);
         joggingTextview.setTextColor(colorDarkBackground);
@@ -149,7 +151,7 @@ public class JoggingActivity extends AppCompatActivity {
 
                     String calorie = "";
                     String type = "getCaloryJogging";
-                    String weight = Integer.toString(user.getBodyWeight());
+                    weight = Integer.toString(user.getBodyWeight());
 //                    String weight="100";
                     String total = textInputEditTextJogging.getText().toString();
 
@@ -193,10 +195,11 @@ public class JoggingActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Intent i = new Intent(JoggingActivity.this, StartJogging.class);
+            Intent i = new Intent(JoggingActivity.this, BlueToothActivity.class);
             i.putExtra("total", textInputEditTextJogging.getText().toString());
             i.putExtra("type", "jogging");
             i.putExtra("calories_total", calories);
+            i.putExtra("weight",weight);
             startActivity(i);
         }
     }

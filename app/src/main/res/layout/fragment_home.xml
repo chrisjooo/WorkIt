@@ -38,14 +38,17 @@
                         android:background="@color/maroon"
                         android:padding="20dp">
 
-                        <android.support.v7.widget.AppCompatImageView
+                        <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/pushupImageLogo"
                             android:adjustViewBounds="true"
                             android:background="@color/maroon"
-                            android:src="@drawable/pushup_yellow"
-                            app:srcCompat="@drawable/pushup_yellow" />
+                            android:textColor="@color/colorBackground"
+                            android:text="PUSH UP"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            />
 
                     </LinearLayout>
 
@@ -93,14 +96,16 @@
                         android:background="@color/maroon"
                         android:padding="20dp">
 
-                        <android.support.v7.widget.AppCompatImageView
+                        <TextView
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/situpImageLogo"
                             android:adjustViewBounds="true"
                             android:background="@color/maroon"
-                            android:src="@drawable/situp_yellow"
-                            app:srcCompat="@drawable/situp_yellow" />
+                            android:textSize="20sp"
+                            android:textColor="@color/colorBackground"
+                            android:textStyle="bold"
+                            android:text="SIT UP" />
 
                     </LinearLayout>
 
@@ -148,14 +153,16 @@
                         android:background="@color/maroon"
                         android:padding="20dp">
 
-                        <android.support.v7.widget.AppCompatImageView
+                        <TextView
                             android:layout_width="105dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/joggingImageLogo"
                             android:adjustViewBounds="true"
                             android:background="@color/maroon"
-                            android:src="@drawable/jogging_yellow"
-                            app:srcCompat="@drawable/jogging_yellow" />
+                            android:textColor="@color/colorBackground"
+                            android:text="JOGGING"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -212,14 +219,16 @@
                             android:background="@color/maroon"
                             android:padding="20dp">
 
-                            <android.support.v7.widget.AppCompatImageView
+                            <TextView
                                 android:layout_width="105dp"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/locationImageLogo"
                                 android:adjustViewBounds="true"
                                 android:background="@color/maroon"
-                                android:src="@drawable/location_yellow"
-                                app:srcCompat="@drawable/location_yellow" />
+                                android:textColor="@color/colorBackground"
+                                android:textStyle="bold"
+                                android:text="LOCATION"
+                                android:textSize="16sp"/>
 
                         </LinearLayout>
 
@@ -259,14 +268,16 @@
                             android:background="@color/maroon"
                             android:padding="20dp">
 
-                            <android.support.v7.widget.AppCompatImageView
+                            <TextView
                                 android:layout_width="140dp"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/temperatureImageLogo"
                                 android:adjustViewBounds="true"
                                 android:background="@color/maroon"
-                                android:src="@drawable/temperature_yellow"
-                                app:srcCompat="@drawable/temperature_yellow" />
+                                android:textSize="16sp"
+                                android:text="TEMPERATURE"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorBackground"/>
 
                         </LinearLayout>
 

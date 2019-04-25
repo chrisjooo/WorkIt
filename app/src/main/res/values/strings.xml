@@ -36,5 +36,8 @@
     <string name="buttonSitUp">Let\'s do some sit-ups today!</string>
     <string name="commandJogging">You should run at least 2 km today!</string>
     <string name="buttonJogging">Let\'s do some running!</string>
+    <string name="title_activity_dummy">DummyActivity</string>
+    <string name="title_activity_blue_tooth">BlueToothActivity</string>
+    <string name="title_activity_workout">WorkoutActivity</string>
 
 </resources>
